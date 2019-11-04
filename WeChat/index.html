@@ -68,7 +68,7 @@ index
 								</a>
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#">
+								<a href="#" v-on:tap="toScheduleSet">
 									<span class="mui-icon mui-icon mui-icon-compose"></span>
 									<div class="mui-media-body">定时设置</div>
 								</a>
@@ -140,6 +140,10 @@ index
 					//报警信息
 					toInfoAlarm:function(){
 						mui.openWindow('pages/info/info_alarm.html');
+					},
+					toScheduleSet:function()
+					{
+						mui.openWindow('pages/scheduleSet/schedule_set.html');
 					}
 				}
 			});
