@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+		<h1 class="mui-title ">test</h1>
+	</header>
+	<div class="mui-content">
+
+		<div class="mui-input-row mui-checkbox">
+			<label>看书</label>
+			<input name="Checkbox" value="看书"  type="checkbox" checked class="rds">
+		</div>
+		<div class="mui-input-row mui-checkbox ">
+			<label>运动</label>
+			<input name="Checkbox" value="运动" type="checkbox" checked class="rds">
+		</div>
+	
+	<button type="button" onclick="getVals()">获取</button>
+	</div>
+
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			
+			
+			
+			function getVals(){
+				var res = getRadioRes('rds');
+				mui.toast(res);
+				
+			}
+			
+			function getRadioRes(className){
+				var rdsObj = document.getElementsByClassName(className);
+				console.log(rdsObj);
+				var checkVal = null;
+				for(i=0;i<rdsObj.length;i++){
+					if(rdsObj[i].checked){
+						checkVal = rdsObj[i].value;
+					}
+				}
+				return checkVal;
+			}
+			
+		</script>
+	</body>
+</html>
