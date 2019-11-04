@@ -62,7 +62,7 @@ index
 								</a>
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#">
+								<a href="#" v-on:tap="toControlGroup">
 									<span class="mui-icon mui-icon mui-icon-settings"></span>
 									<div class="mui-media-body">群组控制</div>
 								</a>
@@ -128,7 +128,11 @@ index
 				methods: {
 					//单灯控制
 					toMineTap: function() {
-						mui.openWindow('control_single.html');
+						mui.openWindow('pages/control/control_single.html');
+					},
+					//群组控制
+					toControlGroup: function() {
+						mui.openWindow('pages/control/control_group.html');
 					},
 					toGroupManage:function(){
 						mui.openWindow('pages/groupManage/group_manage.html');
