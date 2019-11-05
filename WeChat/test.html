@@ -13,44 +13,37 @@
 		<h1 class="mui-title ">test</h1>
 	</header>
 	<div class="mui-content">
-
-		<div class="mui-input-row mui-checkbox">
-			<label>看书</label>
-			<input name="Checkbox" value="看书"  type="checkbox" checked class="rds">
-		</div>
-		<div class="mui-input-row mui-checkbox ">
-			<label>运动</label>
-			<input name="Checkbox" value="运动" type="checkbox" checked class="rds">
-		</div>
-	
-	<button type="button" onclick="getVals()">获取</button>
+		<ui class="mui-table-view">
+			<li class="mui-table-view-cell">Item 1</li>
+			<li class="mui-table-view-cell">Item 1</li>
+			<li class="mui-table-view-cell">Item 1</li>
+			<li class="mui-table-view-cell">Item 1</li>
+			
+			<li class="mui-table-view-cell">Item 1</li>
+			<li class="mui-table-view-cell">Item 1</li>
+			<li class="mui-table-view-cell">Item 1</li>
+			<li class="mui-table-view-cell">Item 1</li>
+		</ui>
+		
 	</div>
-
 
 	<body>
 		<script src="js/mui.js"></script>
 		<script type="text/javascript">
-			
-			
-			
-			function getVals(){
-				var res = getRadioRes('rds');
-				mui.toast(res);
-				
+			mui.init();
+
+			function showTest() {
+				mui.prompt('text', 'defaultText', 'title', ['取消', '确认'], function(e) {
+					e.index
+					console.log(e);
+				}, 'div')
 			}
-			
-			function getRadioRes(className){
-				var rdsObj = document.getElementsByClassName(className);
-				console.log(rdsObj);
-				var checkVal = null;
-				for(i=0;i<rdsObj.length;i++){
-					if(rdsObj[i].checked){
-						checkVal = rdsObj[i].value;
-					}
-				}
-				return checkVal;
+
+
+			function callBack1() {
+
+				mui.toast('ok11');
 			}
-			
 		</script>
 	</body>
 </html>
