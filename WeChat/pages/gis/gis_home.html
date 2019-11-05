@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>监控地图</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<!--App自定义的css-->
+		<!-- <link rel="stylesheet" type="text/css" href="../css/app.css" /> -->
+		<style>
+			.chart {
+				height: 200px;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			h5 {
+				margin-top: 30px;
+				font-weight: bold;
+			}
+
+			h5:first-child {
+				margin-top: 15px;
+			}
+			
+			#container {width:300px; height: 180px; }  
+		</style>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=75bfa0aa9931fbd2d6a219990e1eab2c"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">监控地图</h1>
+		</header>
+
+		<div class="mui-content">
+			<div id="container"></div>
+		</div>
+
+		<script>
+			window.onLoad = function() {
+				var map = new AMap.Map('container');
+			}
+			var url = 'https://webapi.amap.com/maps?v=1.4.15&key=75bfa0aa9931fbd2d6a219990e1eab2c;
+			var jsapi = doc.createElement('script');
+			jsapi.charset = 'utf-8';
+			jsapi.src = url;
+			document.head.appendChild(jsapi);
+		</script>
+	</body>
+
+</html>
