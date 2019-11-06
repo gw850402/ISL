@@ -100,7 +100,6 @@
 			document.getElementById("mySwitch").addEventListener("toggle",function(event){
 			  if(event.detail.isActive){
 			    console.log("你启动了开关");
-				
 				// 为给定 ID 的 user 创建请求
 					axios.get('http://192.168.0.143:8080/plc/SetOn.ashx?id=77')
 					
