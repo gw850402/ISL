@@ -3,23 +3,39 @@
 		"name": "逸夫楼/A座1层/77",
 		"type": "电表",
 		"position": [121.433116, 31.198981],
-		"status": "在线", //在线、离线、故障
-		"runStatus": "开", //开、关
-		"value": "0",
-		"groupId": "0001",
-		"pid": "0000",
-		"remark": ""
+		"status": "在线", 
+		"onOff": true 
 	},
 	{
 		"num": "88",
 		"name": "逸夫楼/A座1层/88",
 		"type": "灯",
 		"position": [121.4233116, 31.298981],
-		"status": "在线", //在线、离线、故障
-		"runStatus": "开", //开、关
-		"value": "0",
-		"groupId": "0001",
-		"pid": "0000",
-		"remark": ""
+		"status": "在线", 
+		"onOff": false 
+	},
+	{
+		"num": "89",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
+	},
+	{
+		"num": "90",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
+	},
+	{
+		"num": "91",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
 	}
 ]
