@@ -45,7 +45,7 @@
 			var infoWindow = new AMap.InfoWindow({ //创建信息窗体
 				isCustom: false, //使用自定义窗体
 				content: `<div id="mySwitch" class="mui-switch"  onclick="asd()"><div class="mui-switch-handle"></div></div>`, //信息窗体的内容可以是任意html片段
-				offset: new AMap.Pixel(16, -45)
+				offset: new AMap.Pixel(0, -30)
 			});
 			var onMarkerClick = function(e) {
 				infoWindow.open(map, e.target.getPosition()); //打开信息窗体
@@ -87,4 +87,3 @@
 
 </html>
 
-<
