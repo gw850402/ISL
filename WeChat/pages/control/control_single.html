@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title></title>
@@ -27,102 +26,113 @@
 				<span class="mui-tab-label">系统</span>
 			</a>
 		</nav>
-		<div class="mui-content">
-			<ul class="mui-table-view">
+		<div id="app" class="mui-content">
+
+			<!-- 	<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					逸夫楼/A座1层/1101
-					<div id="mySwitch" class="mui-switch mui-active">
+					<div id="mySwitch" class="mui-switch mui-switch-mini mui-active">
 						<div class="mui-switch-handle"></div>
 					</div>
 				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座1层/1102
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座1层/1103
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座1层/1104
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座1层/1105
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座2层/1201
-					<div class="mui-switch mui-active">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座2层/1202
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座2层/1203
-					<div class="mui-switch mui-active">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座3层/1301
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					逸夫楼/A座3层/1302
-					<div class="mui-switch">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-			</ul>
+			</ul> -->
+
+			<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
 		</div>
 
 		<script src="../../js/mui.js"></script>
 		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
 			mui.init()
-			
-			document.getElementById("mySwitch").addEventListener("toggle",function(event){
-			  if(event.detail.isActive){
-			    console.log("你启动了开关");
-				
-				// 为给定 ID 的 user 创建请求
-					axios.get('http://192.168.0.143:8080/plc/SetOn.ashx?id=77')
-					
-				  .then(function (response) {
-				    console.log(response);
-				  })
-				  .catch(function (error) {
-				    console.log(error);
-				  });
-			  }else{
-			    console.log("你关闭了开关");  
-				
-				// 为给定 ID 的 user 创建请求
-				axios.get('http://192.168.0.143:8080/plc/SetOff.ashx?id=77')
-				  .then(function (response) {
-				    console.log(response);
-				  })
-				  .catch(function (error) {
-				    console.log(error);
-				  });
-			  }
-			})
+
+			var com_device = Vue.component('com-device', {
+				props: ['device'],
+				data: function() {
+					return {
+						classMuiActive: {
+							'mui-active': this.device.onOff
+						}
+					}
+				},
+				template: `
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					{{device.name}}
+					<div class="mui-switch mui-switch-mini" v-bind:class="this.classMuiActive">
+						<div class="mui-switch-handle" v-on:click="deleteImg(device)"></div>
+					</div>
+				</li>
+				</ul>`,
+				methods: {
+					deleteImg: function(e) {
+						if (e.onOff) {
+							e.onOff = false;
+						} else {
+							e.onOff = true;
+						}
+						this.httpDeviceControl(e.num, e.onOff);
+					},
+					httpDeviceControl: function(deviceNum, onOff) {
+						var url = "";
+						if (onOff) {
+							url = "http://192.168.0.143:8080/plc/SetOn.ashx?id=" + deviceNum;
+						} else {
+							url = "http://192.168.0.143:8080/plc/SetOff.ashx?id=" + deviceNum;
+						}
+						axios.get(url)
+							.then(function(response) {
+								console.log(response);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					}
+				}
+			});
+
+
+
+
+
+			var app = new Vue({
+				el: '#app',
+				data: {
+					devices: []
+				},
+				created: function() {
+					mui.getJSON("../../json/devices.json", function(res) {
+						app.devices = res;
+					});
+				}
+			});
+
+
+
+			// document.getElementById("mySwitch").addEventListener("toggle", function(event) {
+			// 	if (event.detail.isActive) {
+			// 		console.log("你启动了开关");
+			// 		// 为给定 ID 的 user 创建请求
+			// 		axios.get('http://192.168.0.143:8080/plc/SetOn.ashx?id=77')
+			// 			.then(function(response) {
+			// 				console.log(response);
+			// 			})
+			// 			.catch(function(error) {
+			// 				console.log(error);
+			// 			});
+			// 	} else {
+			// 		console.log("你关闭了开关");
+
+			// 		// 为给定 ID 的 user 创建请求
+			// 		axios.get('http://192.168.0.143:8080/plc/SetOff.ashx?id=77')
+			// 			.then(function(response) {
+			// 				console.log(response);
+			// 			})
+			// 			.catch(function(error) {
+			// 				console.log(error);
+			// 			});
+			// 	}
+			// })
 		</script>
 	</body>
 

@@ -1,0 +1,41 @@
+[{
+		"num": "77",
+		"name": "逸夫楼/A座1层/77",
+		"type": "电表",
+		"position": [121.433116, 31.198981],
+		"status": "在线", 
+		"onOff": true 
+	},
+	{
+		"num": "88",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
+	},
+	{
+		"num": "89",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
+	},
+	{
+		"num": "90",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
+	},
+	{
+		"num": "91",
+		"name": "逸夫楼/A座1层/88",
+		"type": "灯",
+		"position": [121.4233116, 31.298981],
+		"status": "在线", 
+		"onOff": false 
+	}
+]

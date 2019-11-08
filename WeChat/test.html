@@ -12,25 +12,26 @@
 		<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
 		<h1 class="mui-title ">test</h1>
 	</header>
-	<div class="mui-content">
-		<ui class="mui-table-view">
-			<li class="mui-table-view-cell">Item 1</li>
-			<li class="mui-table-view-cell">Item 1</li>
-			<li class="mui-table-view-cell">Item 1</li>
-			<li class="mui-table-view-cell">Item 1</li>
-			
-			<li class="mui-table-view-cell">Item 1</li>
-			<li class="mui-table-view-cell">Item 1</li>
-			<li class="mui-table-view-cell">Item 1</li>
-			<li class="mui-table-view-cell">Item 1</li>
-		</ui>
-		
+	<div id="app1" class="mui-content">
+		<div id="app2" class="mui-switch" :class="{'mui-active': isActive}">
+			<div class="mui-switch-handle"></div>
+		</div>
+
 	</div>
 
 	<body>
 		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
+
+			var app1 = new Vue({
+				el: '#app2',
+				data: {
+					//类名isActive，当其为true时，div会拥有类名active，为false时则没有
+					isActive: true
+				}
+			});
 
 			function showTest() {
 				mui.prompt('text', 'defaultText', 'title', ['取消', '确认'], function(e) {
