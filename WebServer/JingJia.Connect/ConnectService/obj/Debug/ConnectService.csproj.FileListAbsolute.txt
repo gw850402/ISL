@@ -5,3 +5,12 @@ C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\ConnectService\obj\
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.csproj.CoreCompileInputs.cache
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.dll
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\ConnectService.dll.config
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\ConnectService.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\ConnectService.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.csproj.CoreCompileInputs.cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\JingJia.PLCDriver.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\JingJia.PLCDriver.pdb
