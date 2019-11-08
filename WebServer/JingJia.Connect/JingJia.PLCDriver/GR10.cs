@@ -72,6 +72,9 @@ namespace JingJia.PLCDriver
             _port.Write(_sendData, 0, 12);
             _port.Read(_reciveData, 0, 6);
             _port.Close();
+            if ((_reciveData[3] & 128) > 0)
+                throw new Exception("打开失败");
+           
         }
         /// <summary>
         /// 断路器关闭
@@ -101,6 +104,9 @@ namespace JingJia.PLCDriver
             _port.Write(_sendData, 0, 12);
             _port.Read(_reciveData, 0, 6);
             _port.Close();
+            if ((_reciveData[3] & 128) == 0)
+                throw new Exception("关闭失败");
+
         }
 
         private byte Add(byte[] data, int start, int length)

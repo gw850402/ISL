@@ -10,3 +10,9 @@ C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\Jingjia.Connect.Res
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.csproj.CoreCompileInputs.cache
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.dll
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\bin\Debug\Jingjia.Connect.RestFulService.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\bin\Debug\Jingjia.Connect.RestFulService.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.csproj.CoreCompileInputs.cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\Jingjia.Connect.RestFulService\obj\Debug\Jingjia.Connect.RestFulService.pdb

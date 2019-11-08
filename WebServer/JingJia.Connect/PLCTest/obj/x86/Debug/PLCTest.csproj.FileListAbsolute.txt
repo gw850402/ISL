@@ -34,3 +34,16 @@ C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\PLCTest\obj\x86\Deb
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.csproj.CoreCompileInputs.cache
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.exe
 C:\Users\Eric\Documents\SourceCode\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\bin\Debug\PLCTest.exe
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\bin\Debug\PLCTest.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\bin\Debug\Jingjia.Connect.RestFulService.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\bin\Debug\JingJia.PLCDriver.dll
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\bin\Debug\Jingjia.Connect.RestFulService.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\bin\Debug\JingJia.PLCDriver.pdb
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.Form1.resources
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.Properties.Resources.resources
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.csproj.CoreCompileInputs.cache
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.exe
+C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\PLCTest\obj\x86\Debug\PLCTest.pdb
