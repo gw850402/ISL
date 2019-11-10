@@ -4,7 +4,8 @@
 		"type": "电表",
 		"position": [121.433116, 31.198981],
 		"status": "在线", 
-		"onOff": true 
+		"onOff": true ,
+		"value":"00.00"
 	},
 	{
 		"num": "88",
@@ -12,7 +13,8 @@
 		"type": "灯",
 		"position": [121.4233116, 31.298981],
 		"status": "在线", 
-		"onOff": false 
+		"onOff": false ,
+		"value":"00.00"
 	},
 	{
 		"num": "89",
@@ -20,7 +22,8 @@
 		"type": "灯",
 		"position": [121.4233116, 31.298981],
 		"status": "在线", 
-		"onOff": false 
+		"onOff": false ,
+		"value":"00.00"
 	},
 	{
 		"num": "90",
@@ -28,7 +31,8 @@
 		"type": "灯",
 		"position": [121.4233116, 31.298981],
 		"status": "在线", 
-		"onOff": false 
+		"onOff": false ,
+		"value":"00.00"
 	},
 	{
 		"num": "91",
@@ -36,6 +40,7 @@
 		"type": "灯",
 		"position": [121.4233116, 31.298981],
 		"status": "在线", 
-		"onOff": false 
+		"onOff": false ,
+		"value":"00.00"
 	}
 ]
