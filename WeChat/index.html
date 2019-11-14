@@ -36,15 +36,15 @@ index
 					<h1 class="mui-title">上海交通大学路灯系统</h1>
 				</header>
 				<nav class="mui-bar mui-bar-tab">
-					<a class="mui-tab-item mui-active">
+					<a class="mui-tab-item mui-active" v-on:tap="toHome">
 						<span class="mui-icon mui-icon-home"></span>
 						<span class="mui-tab-label">首页</span>
 					</a>
-					<a class="mui-tab-item">
+					<a class="mui-tab-item" v-on:tap="toHome">
 						<span class="mui-icon mui-icon mui-icon-paperplane"></span>
 						<span class="mui-tab-label">导航</span>
 					</a>
-					<a class="mui-tab-item">
+					<a class="mui-tab-item" v-on:tap="toHome">
 						<span class="mui-icon mui-icon-gear"></span>
 						<span class="mui-tab-label">系统</span>
 					</a>
@@ -56,25 +56,31 @@ index
 						<ul class="mui-table-view mui-grid-view mui-grid-9">
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toMineTap">
-									<span class="mui-icon mui-icon mui-icon mui-icon-videocam"></span>
+									<span class="mui-icon mui-icon-videocam"></span>
 									<div class="mui-media-body">单灯控制</div>
 								</a>
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+								<a href="#" v-on:tap="toAmmeter">
+									<span class="mui-icon mui-icon-search"></span>
+									<div class="mui-media-body">电表抄读</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toControlGroup">
-									<span class="mui-icon mui-icon mui-icon-settings"></span>
+									<span class="mui-icon  mui-icon-settings"></span>
 									<div class="mui-media-body">群组控制</div>
 								</a>
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toScheduleSet">
-									<span class="mui-icon mui-icon mui-icon-compose"></span>
+									<span class="mui-icon mui-icon-compose"></span>
 									<div class="mui-media-body">定时设置</div>
 								</a>
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toGroupManage">
-									<span class="mui-icon mui-icon mui-icon-bars"></span>
+									<span class="mui-icon mui-icon-bars"></span>
 									<div class="mui-media-body">群组管理</div>
 								</a>
 							</li>
@@ -86,7 +92,7 @@ index
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toInfoCenter">
-									<span class="mui-icon mui-icon mui-icon-email">
+									<span class="mui-icon mui-icon-email">
 										<span class="mui-badge">5</span>
 									</span>
 									<div class="mui-media-body">消息中心</div>
@@ -100,7 +106,7 @@ index
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toInfoAlarm">
-									<span class="mui-icon mui-icon mui-icon mui-icon-info">
+									<span class="mui-icon mui-icon-info">
 										<span class="mui-badge">1</span>
 									</span>
 									<div class="mui-media-body">报警信息</div>
@@ -108,7 +114,7 @@ index
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 								<a href="#" v-on:tap="toGIS">
-									<span class="mui-icon mui-icon mui-icon-map"></span>
+									<span class="mui-icon mui-icon-map"></span>
 									<div class="mui-media-body">GIS</div>
 								</a>
 							</li>
@@ -129,33 +135,37 @@ index
 					toMineTap: function() {
 						mui.openWindow('pages/control/control_single.html');
 					},
+					toAmmeter: function() {
+						mui.openWindow('pages/control/control_ammeter.html');
+					},
 					//群组控制
 					toControlGroup: function() {
 						mui.openWindow('pages/control/control_group.html');
 					},
-					toGroupManage:function(){
+					toGroupManage: function() {
 						mui.openWindow('pages/groupManage/group_manage.html');
 					},
 					//消息中心
-					toInfoCenter:function(){
+					toInfoCenter: function() {
 						mui.openWindow('pages/info/info_center.html');
 					},
 					//报警信息
-					toInfoAlarm:function(){
+					toInfoAlarm: function() {
 						mui.openWindow('pages/info/info_alarm.html');
 					},
-					toScheduleSet:function()
-					{
+					toScheduleSet: function() {
 						mui.openWindow('pages/scheduleSet/schedule_set.html');
 					},
 					//能耗分析
-					toEnergy:function()
-					{
+					toEnergy: function() {
 						mui.openWindow('pages/energy/energy_home.html');
 					},
 					//GIG地图
-					toGIS:function(){
+					toGIS: function() {
 						mui.openWindow('pages/gis/gis_home.html');
+					},
+					toHome: function() {
+						mui.openWindow('index.html');
 					}
 				}
 			});

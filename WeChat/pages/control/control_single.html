@@ -8,27 +8,28 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">单灯控制</h1>
-		</header>
-		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">首页</span>
-			</a>
-			<a class="mui-tab-item">
-				<span class="mui-icon mui-icon mui-icon-paperplane"></span>
-				<span class="mui-tab-label">导航</span>
-			</a>
-			<a class="mui-tab-item">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">系统</span>
-			</a>
-		</nav>
 		<div id="app" class="mui-content">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">单灯控制</h1>
+			</header>
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item mui-active" v-on:tap="toHome">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a class="mui-tab-item" v-on:tap="toHome">
+					<span class="mui-icon mui-icon mui-icon-paperplane"></span>
+					<span class="mui-tab-label">导航</span>
+				</a>
+				<a class="mui-tab-item" v-on:tap="toHome">
+					<span class="mui-icon mui-icon-gear"></span>
+					<span class="mui-tab-label">系统</span>
+				</a>
+			</nav>
+			<div class="mui-content">
 
-			<!-- 	<ul class="mui-table-view">
+				<!-- 	<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					逸夫楼/A座1层/1101
 					<div id="mySwitch" class="mui-switch mui-switch-mini mui-active">
@@ -37,10 +38,11 @@
 				</li>
 			</ul> -->
 
-			<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
+				<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
+			</div>
 		</div>
-
 		<script src="../../js/mui.js"></script>
+		<script src="../../js/api.js"></script>
 		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
@@ -60,7 +62,7 @@
 				<li class="mui-table-view-cell">
 					{{device.name}}
 					<div class="mui-switch mui-switch-mini" v-bind:class="this.classMuiActive">
-						<div class="mui-switch-handle" v-on:click="deleteImg(device)"></div>
+						<div class="mui-switch-handle" v-on:tap="deleteImg(device)"></div>
 					</div>
 				</li>
 				</ul>`,
@@ -76,9 +78,9 @@
 					httpDeviceControl: function(deviceNum, onOff) {
 						var url = "";
 						if (onOff) {
-							url = "http://192.168.0.143:8080/plc/SetOn.ashx?id=" + deviceNum;
+							url = BASEURL + "SetOn.ashx?id=" + deviceNum;
 						} else {
-							url = "http://192.168.0.143:8080/plc/SetOff.ashx?id=" + deviceNum;
+							url = BASEURL + "SetOff.ashx?id=" + deviceNum;
 						}
 						axios.get(url)
 							.then(function(response) {
@@ -91,10 +93,6 @@
 				}
 			});
 
-
-
-
-
 			var app = new Vue({
 				el: '#app',
 				data: {
@@ -104,6 +102,11 @@
 					mui.getJSON("../../json/devices.json", function(res) {
 						app.devices = res;
 					});
+				},
+				methods: {
+					toHome: function() {
+						mui.openWindow('../../index.html');
+					}
 				}
 			});
 
