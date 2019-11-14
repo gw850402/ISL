@@ -20,3 +20,8 @@ C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\o
 C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\obj\Debug\JingJia.PLCDriver.csproj.CoreCompileInputs.cache
 C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\obj\Debug\JingJia.PLCDriver.dll
 C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\obj\Debug\JingJia.PLCDriver.pdb
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\bin\Debug\JingJia.PLCDriver.dll
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\bin\Debug\JingJia.PLCDriver.pdb
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\obj\Debug\JingJia.PLCDriver.csprojAssemblyReference.cache
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\obj\Debug\JingJia.PLCDriver.dll
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\JingJia.PLCDriver\obj\Debug\JingJia.PLCDriver.pdb

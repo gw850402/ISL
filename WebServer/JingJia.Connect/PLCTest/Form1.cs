@@ -47,5 +47,10 @@ namespace PLCTest
         {
             RestFulService.Stop();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+           this.Text= _plc.GetElectricity(int.Parse(textBox1.Text)).ToString();
+        }
     }
 }

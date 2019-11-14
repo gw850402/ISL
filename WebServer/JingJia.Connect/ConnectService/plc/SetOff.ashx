@@ -14,11 +14,11 @@ public class SetOff : IHttpHandler {
             {
                 JingJia.PLCDriver.DriveFactory.GetPLCInstence().SetOff(code);
             }
-           context.Response.Write(ConnectService.Common.ResultJsonString(code,0,"成功"));
+           context.Response.Write(ConnectService.Common.ResultJsonString(code,"0","成功"));
         }
         catch(Exception ex)
         {
-            context.Response.Write(ConnectService.Common.ResultJsonString(code,1,"失败"));
+            context.Response.Write(ConnectService.Common.ResultJsonString(code,"1","失败"));
         }
     }
  

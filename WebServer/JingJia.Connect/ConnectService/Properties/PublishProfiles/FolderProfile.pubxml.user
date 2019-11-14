@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Release\Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>11/10/2019 15:22:16</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>11/10/2019 15:22:16</publishTime>
+    </File>
+    <File Include="bin/ConnectService.dll">
+      <publishTime>11/10/2019 15:22:15</publishTime>
+    </File>
+    <File Include="bin/ConnectService.pdb">
+      <publishTime>11/10/2019 15:22:15</publishTime>
+    </File>
+    <File Include="bin/JingJia.PLCDriver.dll">
+      <publishTime>11/10/2019 14:56:04</publishTime>
+    </File>
+    <File Include="bin/JingJia.PLCDriver.pdb">
+      <publishTime>11/10/2019 14:56:04</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>11/10/2019 13:55:05</publishTime>
+    </File>
+    <File Include="MessageRegister.ashx">
+      <publishTime>11/10/2019 12:02:34</publishTime>
+    </File>
+    <File Include="plc/GetElectricity.ashx">
+      <publishTime>11/10/2019 11:30:09</publishTime>
+    </File>
+    <File Include="plc/SetOff.ashx">
+      <publishTime>11/10/2019 11:53:40</publishTime>
+    </File>
+    <File Include="plc/SetOn.ashx">
+      <publishTime>11/10/2019 11:34:49</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>11/10/2019 15:22:15</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/10/2019 14:40:11</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>11/10/2019 15:21:37</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

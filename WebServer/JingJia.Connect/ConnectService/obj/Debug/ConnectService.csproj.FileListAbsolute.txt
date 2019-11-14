@@ -14,3 +14,12 @@ C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\obj\
 C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.pdb
 C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\JingJia.PLCDriver.dll
 C:\Users\Eric\Documents\GitHub\ISL\WebServer\JingJia.Connect\ConnectService\bin\JingJia.PLCDriver.pdb
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\bin\ConnectService.dll.config
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\bin\ConnectService.dll
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\bin\ConnectService.pdb
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\bin\JingJia.PLCDriver.dll
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\bin\JingJia.PLCDriver.pdb
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.csprojAssemblyReference.cache
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.csproj.CopyComplete
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.dll
+E:\ISL\sourcecode\ISL\WebServer\JingJia.Connect\ConnectService\obj\Debug\ConnectService.pdb

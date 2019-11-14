@@ -70,9 +70,14 @@ namespace JingJia.PLCDriver
             if (!_port.IsOpen)
                 _port.Open();
             _port.Write(_sendData, 0, 12);
+            _reciveData[0] = 0;
+            _reciveData[1] = 0;
+            _reciveData[2] = 0;
+
+            System.Threading.Thread.Sleep(2000);
             _port.Read(_reciveData, 0, 6);
             _port.Close();
-            if ((_reciveData[3] & 128) > 0)
+            if ((_reciveData[3] & 128) > 0 || _reciveData[1] == 0)
                 throw new Exception("打开失败");
            
         }
@@ -102,13 +107,65 @@ namespace JingJia.PLCDriver
             if (!_port.IsOpen)
                 _port.Open();
             _port.Write(_sendData, 0, 12);
+            _reciveData[0] = 0;
+            _reciveData[1] = 0;
+            _reciveData[2] = 0;
+            System.Threading.Thread.Sleep(2000);
             _port.Read(_reciveData, 0, 6);
             _port.Close();
-            if ((_reciveData[3] & 128) == 0)
+            if ((_reciveData[3] & 128) == 0 || _reciveData[1]==0)
                 throw new Exception("关闭失败");
+            
+        }
+        /// <summary>
+        /// 根据单项电表表号获取表底读数
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public float GetElectricity(int code)
+        {
+            float r=0f;
+            _sendData[0] = Convert.ToByte('S');
+            _sendData[1] = 7;
+            _sendData[2] = 63;
+            _sendData[3] = (byte)((code & 0x000000ff)); //表号
+            _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
+            _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
+            _sendData[6] = 0;
+            _sendData[7] = Add(_sendData, 1, 6);
+            _sendData[8] = Crc(_sendData, 1, 6);
+            try
+            {
+
+                if (!_port.IsOpen)
+                    _port.Open();
+                _port.Write(_sendData, 0, 9);
+                _reciveData[0] = 0;
+                _reciveData[1] = 0;
+                _reciveData[2] = 0;
+                //实践证明必须等待大约2秒钟，否则获取的数据为空
+                System.Threading.Thread.Sleep(2000);
+                _port.Read(_reciveData, 0, 9);
+                if (_reciveData[1] != 0)
+                {
+                    r = (_reciveData[4] + _reciveData[5] * 256 + _reciveData[6] * 256 * 256) / 100F;
+                    return r;
+                }
+                else
+                {
+                    throw new Exception("获取表底信息失败");
+                }
+            }
+            catch
+            {
+                throw new Exception("获取表底信息失败");
+            }
+            finally
+            {
+                _port.Close();
+            }
 
         }
-
         private byte Add(byte[] data, int start, int length)
         {
             int temp = 0;

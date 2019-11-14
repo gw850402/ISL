@@ -68,6 +68,7 @@
 				</ul>`,
 				methods: {
 					deleteImg: function(e) {
+						debugger;
 						if (e.onOff) {
 							e.onOff = false;
 						} else {
@@ -82,11 +83,14 @@
 						} else {
 							url = BASEURL + "SetOff.ashx?id=" + deviceNum;
 						}
+						debugger;
 						axios.get(url)
 							.then(function(response) {
+								debugger;
 								console.log(response);
 							})
 							.catch(function(error) {
+								debugger;
 								console.log(error);
 							});
 					}
