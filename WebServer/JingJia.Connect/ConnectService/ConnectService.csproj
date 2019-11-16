@@ -61,6 +61,64 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Wechat\css\app.css" />
+    <Content Include="Wechat\css\feedback.css" />
+    <Content Include="Wechat\css\icons-extra.css" />
+    <Content Include="Wechat\css\mui.css" />
+    <Content Include="Wechat\css\mui.dtpicker.css" />
+    <Content Include="Wechat\css\mui.imageviewer.css" />
+    <Content Include="Wechat\css\mui.indexedlist.css" />
+    <Content Include="Wechat\css\mui.listpicker.css" />
+    <Content Include="Wechat\css\mui.min.css" />
+    <Content Include="Wechat\css\mui.picker.all.css" />
+    <Content Include="Wechat\css\mui.picker.css" />
+    <Content Include="Wechat\css\mui.picker.min.css" />
+    <Content Include="Wechat\css\mui.poppicker.css" />
+    <Content Include="Wechat\imgs\1.png" />
+    <Content Include="Wechat\index.html" />
+    <Content Include="Wechat\js\95516.js" />
+    <Content Include="Wechat\js\api.js" />
+    <Content Include="Wechat\js\arttmpl.js" />
+    <Content Include="Wechat\js\axios.js" />
+    <Content Include="Wechat\js\beecloud.js" />
+    <Content Include="Wechat\js\city.data-3.js" />
+    <Content Include="Wechat\js\city.data.js" />
+    <Content Include="Wechat\js\feedback.js" />
+    <Content Include="Wechat\js\mui.dtpicker.js" />
+    <Content Include="Wechat\js\mui.imageViewer.js" />
+    <Content Include="Wechat\js\mui.indexedlist.js" />
+    <Content Include="Wechat\js\mui.js" />
+    <Content Include="Wechat\js\mui.lazyload.img.js" />
+    <Content Include="Wechat\js\mui.lazyload.js" />
+    <Content Include="Wechat\js\mui.listpicker.js" />
+    <Content Include="Wechat\js\mui.locker.js" />
+    <Content Include="Wechat\js\mui.min.js" />
+    <Content Include="Wechat\js\mui.picker.all.js" />
+    <Content Include="Wechat\js\mui.picker.js" />
+    <Content Include="Wechat\js\mui.picker.min.js" />
+    <Content Include="Wechat\js\mui.poppicker.js" />
+    <Content Include="Wechat\js\mui.previewimage.js" />
+    <Content Include="Wechat\js\mui.pullToRefresh.js" />
+    <Content Include="Wechat\js\mui.pullToRefresh.material.js" />
+    <Content Include="Wechat\js\mui.view.js" />
+    <Content Include="Wechat\js\mui.zoom.js" />
+    <Content Include="Wechat\js\update.js" />
+    <Content Include="Wechat\js\vue.min.js" />
+    <Content Include="Wechat\js\webviewGroup.js" />
+    <Content Include="Wechat\libs\echarts-all.js" />
+    <Content Include="Wechat\pages\control\control_ammeter.html" />
+    <Content Include="Wechat\pages\control\control_group.html" />
+    <Content Include="Wechat\pages\control\control_single.html" />
+    <Content Include="Wechat\pages\control\new_file.html" />
+    <Content Include="Wechat\pages\energy\energy_home.html" />
+    <Content Include="Wechat\pages\gis\gis_home.html" />
+    <Content Include="Wechat\pages\groupManage\group_manage.html" />
+    <Content Include="Wechat\pages\groupManage\group_manage_detail.html" />
+    <Content Include="Wechat\pages\info\info_alarm.html" />
+    <Content Include="Wechat\pages\info\info_center.html" />
+    <Content Include="Wechat\pages\scheduleSet\schedule_set.html" />
+    <Content Include="Wechat\pages\scheduleSet\schedule_set_detail.html" />
+    <Content Include="Wechat\test.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bll\Alarm.cs" />
@@ -98,6 +156,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Wechat\fonts\mui.ttf" />
+    <Content Include="Wechat\json\devices.json" />
+    <Content Include="Wechat\manifest.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JingJia.PLCDriver\JingJia.PLCDriver.csproj">

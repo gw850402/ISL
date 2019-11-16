@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+		<h1 class="mui-title ">test</h1>
+	</header>
+	<div id="app1" class="mui-content">
+		<div id="app2" class="mui-switch" :class="{'mui-active': isActive}">
+			<div class="mui-switch-handle"></div>
+		</div>
+
+	</div>
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			var app1 = new Vue({
+				el: '#app2',
+				data: {
+					//类名isActive，当其为true时，div会拥有类名active，为false时则没有
+					isActive: true
+				}
+			});
+
+			function showTest() {
+				mui.prompt('text', 'defaultText', 'title', ['取消', '确认'], function(e) {
+					e.index
+					console.log(e);
+				}, 'div')
+			}
+
+
+			function callBack1() {
+
+				mui.toast('ok11');
+			}
+		</script>
+	</body>
+</html>
