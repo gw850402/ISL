@@ -166,6 +166,8 @@
     <Content Include="Wechat\fonts\mui.ttf" />
     <Content Include="Wechat\json\devices.json" />
     <Content Include="Wechat\manifest.json" />
+    <Content Include="Wechat\json\immersion_detection.json" />
+    <Content Include="Wechat\json\water_ammeter.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JingJia.PLCDriver\JingJia.PLCDriver.csproj">
