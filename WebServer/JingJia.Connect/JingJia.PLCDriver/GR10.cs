@@ -14,7 +14,7 @@ namespace JingJia.PLCDriver
         SerialPort _port = null;
         byte[] _sendData = new byte[1024];
         byte[] _reciveData = new byte[1024];
-
+        static object comLock = new object();
         public void Open(string comPort)
         {
             if(_port==null)
@@ -66,17 +66,19 @@ namespace JingJia.PLCDriver
             _sendData[10] = Add(_sendData, 1, 9);
             _sendData[11] = Crc(_sendData, 1, 9);
 
+            lock (comLock)
+            {
+                if (!_port.IsOpen)
+                    _port.Open();
+                _port.Write(_sendData, 0, 12);
+                _reciveData[0] = 0;
+                _reciveData[1] = 0;
+                _reciveData[2] = 0;
 
-            if (!_port.IsOpen)
-                _port.Open();
-            _port.Write(_sendData, 0, 12);
-            _reciveData[0] = 0;
-            _reciveData[1] = 0;
-            _reciveData[2] = 0;
-
-            System.Threading.Thread.Sleep(2000);
-            _port.Read(_reciveData, 0, 6);
-            _port.Close();
+                System.Threading.Thread.Sleep(2000);
+                _port.Read(_reciveData, 0, 6);
+                _port.Close();
+            }
             if ((_reciveData[3] & 128) > 0 || _reciveData[1] == 0)
                 throw new Exception("打开失败");
            
@@ -103,19 +105,20 @@ namespace JingJia.PLCDriver
             _sendData[10] = Add(_sendData, 1, 9);
             _sendData[11] = Crc(_sendData, 1, 9);
 
-
-            if (!_port.IsOpen)
-                _port.Open();
-            _port.Write(_sendData, 0, 12);
-            _reciveData[0] = 0;
-            _reciveData[1] = 0;
-            _reciveData[2] = 0;
-            System.Threading.Thread.Sleep(2000);
-            _port.Read(_reciveData, 0, 6);
-            _port.Close();
-            if ((_reciveData[3] & 128) == 0 || _reciveData[1]==0)
-                throw new Exception("关闭失败");
-            
+            lock (comLock)
+            {
+                if (!_port.IsOpen)
+                    _port.Open();
+                _port.Write(_sendData, 0, 12);
+                _reciveData[0] = 0;
+                _reciveData[1] = 0;
+                _reciveData[2] = 0;
+                System.Threading.Thread.Sleep(2000);
+                _port.Read(_reciveData, 0, 6);
+                _port.Close();
+                if ((_reciveData[3] & 128) == 0 || _reciveData[1] == 0)
+                    throw new Exception("关闭失败");
+            }
         }
         /// <summary>
         /// 根据单项电表表号获取表底读数
@@ -134,19 +137,24 @@ namespace JingJia.PLCDriver
             _sendData[6] = 0;
             _sendData[7] = Add(_sendData, 1, 6);
             _sendData[8] = Crc(_sendData, 1, 6);
+            
             try
             {
+                lock (comLock)
+                {
 
-                if (!_port.IsOpen)
-                    _port.Open();
-                _port.Write(_sendData, 0, 9);
-                _reciveData[0] = 0;
-                _reciveData[1] = 0;
-                _reciveData[2] = 0;
-                //实践证明必须等待大约2秒钟，否则获取的数据为空
-                System.Threading.Thread.Sleep(2000);
-                _port.Read(_reciveData, 0, 9);
-                if (_reciveData[1] != 0)
+                    if (!_port.IsOpen)
+                        _port.Open();
+                    _port.Write(_sendData, 0, 9);
+                    _reciveData[0] = 0;
+                    _reciveData[1] = 0;
+                    _reciveData[2] = 0;
+                    //实践证明必须等待大约2秒钟，否则获取的数据为空
+                    //System.Threading.Thread.Sleep(2000);
+                    System.Threading.Thread.Sleep(1000);
+                    _port.Read(_reciveData, 0, 9);
+                }
+                if (_reciveData[0] != 0)
                 {
                     r = (_reciveData[4] + _reciveData[5] * 256 + _reciveData[6] * 256 * 256) / 100F;
                     return r;

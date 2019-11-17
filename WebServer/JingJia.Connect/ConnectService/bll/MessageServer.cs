@@ -22,7 +22,7 @@ namespace ConnectService
             {
                 // if(_messageClients.Where(n=>n.Key==ip).Count()==0)
                 // _messageClients.Add(ip,messageClient);
-                _messageClients.Add(DateTime.Now.ToString(), messageClient);
+                _messageClients.Add(Guid.NewGuid().ToString(), messageClient);
 
             }
 
