@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -28,7 +28,7 @@
 				</a>
 			</nav>
 			<div class="mui-content">
-				<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
+				<com-water-ammeter v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-water-ammeter>
 			</div>
 		</div>
 		<script src="../../js/mui.js"></script>
@@ -37,7 +37,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
 			mui.init()
-			var com_device = Vue.component('com-device', {
+			var com_device = Vue.component('com-water-ammeter', {
 				props: ['device'],
 				data: function() {
 					return {

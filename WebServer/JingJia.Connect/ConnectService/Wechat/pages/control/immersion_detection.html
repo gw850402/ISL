@@ -28,8 +28,10 @@
 				</a>
 			</nav>
 			<div class="mui-content">
-				<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
-			</div>
+				<ul class="mui-table-view">
+				<com-immersion-detection v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-immersion-detection>
+				</ul>
+			</div>			
 		</div>
 		<script src="../../js/mui.js"></script>
 		<script src="../../js/api.js"></script>
@@ -37,7 +39,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
 			mui.init()
-			var com_device = Vue.component('com-device', {
+			var com_device = Vue.component('com-immersion-detection', {
 				props: ['device'],
 				data: function() {
 					return {
@@ -46,16 +48,14 @@
 						}
 					}
 				},
-				template: `
-				<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<div>
-					{{device.name}}
-					<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span>
-					<span class="mui-badge mui-badge-primary">{{device.value}}</span>
-					</div>					
+				template: `				
+				<li class="mui-table-view-cell ">
+					<div class="mui-checkbox">
+					  <label>{{device.name}}<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span></label>
+					  <input name="checkbox1" value="Item 1" type="checkbox" checked>
+					</div>
 				</li>
-				</ul>`,
+				`,
 				methods: {
 					refreshValue: function(e) {
 						console.log(e);
