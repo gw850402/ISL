@@ -6,50 +6,245 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Release\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\webfile</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/10/2019 15:22:16</publishTime>
+      <publishTime>11/17/2019 17:33:12</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/10/2019 15:22:16</publishTime>
+      <publishTime>11/17/2019 17:33:12</publishTime>
     </File>
     <File Include="bin/ConnectService.dll">
-      <publishTime>11/10/2019 15:22:15</publishTime>
+      <publishTime>11/17/2019 17:33:11</publishTime>
     </File>
     <File Include="bin/ConnectService.pdb">
-      <publishTime>11/10/2019 15:22:15</publishTime>
+      <publishTime>11/17/2019 17:33:11</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.dll">
-      <publishTime>11/10/2019 14:56:04</publishTime>
+      <publishTime>11/17/2019 15:18:34</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.pdb">
-      <publishTime>11/10/2019 14:56:04</publishTime>
+      <publishTime>11/17/2019 15:18:34</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>11/10/2019 13:55:05</publishTime>
     </File>
     <File Include="MessageRegister.ashx">
-      <publishTime>11/10/2019 12:02:34</publishTime>
+      <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="plc/GetElectricity.ashx">
-      <publishTime>11/10/2019 11:30:09</publishTime>
+      <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="plc/SetOff.ashx">
-      <publishTime>11/10/2019 11:53:40</publishTime>
+      <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="plc/SetOn.ashx">
-      <publishTime>11/10/2019 11:34:49</publishTime>
+      <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/10/2019 15:22:15</publishTime>
+      <publishTime>11/17/2019 17:33:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/10/2019 14:40:11</publishTime>
+      <publishTime>11/17/2019 14:10:05</publishTime>
     </File>
     <File Include="WebForm1.aspx">
-      <publishTime>11/10/2019 15:21:37</publishTime>
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/app.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/feedback.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/icons-extra.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.dtpicker.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.imageviewer.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.indexedlist.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.listpicker.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.min.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.picker.all.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.picker.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.picker.min.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/css/mui.poppicker.css">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/fonts/mui.ttf">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/imgs/1.png">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/index.html">
+      <publishTime>11/17/2019 11:52:27</publishTime>
+    </File>
+    <File Include="Wechat/js/95516.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/api.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/arttmpl.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/axios.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/beecloud.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/city.data-3.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/city.data.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/feedback.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.dtpicker.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.imageViewer.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.indexedlist.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.lazyload.img.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.lazyload.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.listpicker.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.locker.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.min.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.picker.all.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.picker.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.picker.min.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.poppicker.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.previewimage.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.pullToRefresh.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.pullToRefresh.material.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.view.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/mui.zoom.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/update.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/vue.min.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/js/webviewGroup.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/json/devices.json">
+      <publishTime>11/17/2019 15:50:39</publishTime>
+    </File>
+    <File Include="Wechat/json/device_ammeter.json">
+      <publishTime>11/17/2019 15:57:03</publishTime>
+    </File>
+    <File Include="Wechat/json/device_light.json">
+      <publishTime>11/17/2019 16:04:40</publishTime>
+    </File>
+    <File Include="Wechat/json/device_water.json">
+      <publishTime>11/17/2019 15:57:49</publishTime>
+    </File>
+    <File Include="Wechat/libs/echarts-all.js">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/manifest.json">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/control/control_ammeter.html">
+      <publishTime>11/17/2019 16:16:55</publishTime>
+    </File>
+    <File Include="Wechat/pages/control/control_group.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/control/control_single.html">
+      <publishTime>11/17/2019 17:31:18</publishTime>
+    </File>
+    <File Include="Wechat/pages/control/new_file.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/energy/energy_home.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/gis/gis_home.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/groupManage/group_manage.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/groupManage/group_manage_detail.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/info/info_alarm.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/info/info_center.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/scheduleSet/schedule_set.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/scheduleSet/schedule_set_detail.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/scheduleSet/schedule_set_obj.html">
+      <publishTime>11/17/2019 11:42:55</publishTime>
+    </File>
+    <File Include="Wechat/test.html">
+      <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

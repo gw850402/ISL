@@ -154,7 +154,7 @@ namespace JingJia.PLCDriver
                     System.Threading.Thread.Sleep(1000);
                     _port.Read(_reciveData, 0, 9);
                 }
-                if (_reciveData[0] != 0)
+                if (_reciveData[1] != 0)
                 {
                     r = (_reciveData[4] + _reciveData[5] * 256 + _reciveData[6] * 256 * 256) / 100F;
                     return r;
