@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../../css/mui.css" rel="stylesheet" />
+    <style type="text/css">
+        .divTab {
+            display: flex;
+            flex-direction: row;
+            height: 43px;
+            width: 100%;
+        }
+
+            .divTab > .leftTab {
+                order: 1;
+                width: 50%;                
+            }
+
+                .divTab > .leftTab > a {
+                    display: block;
+                    margin-left: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    line-height: 33px;
+                    text-align:center;
+                    border:solid 1px #007aff;
+                    border-radius: 5px 0px 0px 5px;
+                }
+
+            .divTab > .rightTab {
+                order: 2;
+                width: 50%;                
+            }
+
+                .divTab > .rightTab > a {
+                    display: block;
+                    margin-right: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    line-height: 33px;
+                    text-align:center;
+                    border:solid 1px #007aff;
+                    border-radius: 0px 5px 5px 0px;
+                }
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">调度对象</h1>
+        <button type="button" style="float: right;" class="mui-btn mui-btn-primary">完成</button>
+    </header>
+    <div class="mui-content">
+        <div class="mui-input-row mui-search">
+            <input type="search" class="mui-input-clear" placeholder="搜索">
+        </div>
+        <div class="divTab">
+            <div class="leftTab">
+                <a href="#">群组</a>
+            </div>
+            <div class="rightTab">
+                <a href="#">单灯</a>
+            </div>
+        </div>
+        <div class="divGroupSelect" style=""></div>
+        <div class="divSingleSelect"></div>
+
+        <script src="../../js/mui.js"></script>
+        <script type="text/javascript">
+            mui.init();
+        </script>
+    </div>
+</body>
+</html>

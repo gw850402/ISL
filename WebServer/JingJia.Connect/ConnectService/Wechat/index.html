@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 index
 @version:1.0.0
 @author: zhw 
@@ -53,72 +53,96 @@ index
 				<div class="mui-content mui-scroll-wrapper">
 					<div class="mui-scroll">
 						<!-- 主界面具体展示内容 -->
-						<ul class="mui-table-view mui-grid-view mui-grid-9">
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toMineTap">
-									<span class="mui-icon mui-icon-videocam"></span>
-									<div class="mui-media-body">单灯控制</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toAmmeter">
-									<span class="mui-icon mui-icon-search"></span>
-									<div class="mui-media-body">电表抄读</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toControlGroup">
-									<span class="mui-icon  mui-icon-settings"></span>
-									<div class="mui-media-body">群组控制</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toScheduleSet">
-									<span class="mui-icon mui-icon-compose"></span>
-									<div class="mui-media-body">定时设置</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toGroupManage">
-									<span class="mui-icon mui-icon-bars"></span>
-									<div class="mui-media-body">群组管理</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toEnergy">
-									<span class="mui-icon mui-icon-search"></span>
-									<div class="mui-media-body">能耗分析</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toInfoCenter">
-									<span class="mui-icon mui-icon-email">
-										<span class="mui-badge">5</span>
-									</span>
-									<div class="mui-media-body">消息中心</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#">
-									<span class="mui-icon mui-icon-location"></span>
-									<div class="mui-media-body">帮助</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toInfoAlarm">
-									<span class="mui-icon mui-icon-info">
-										<span class="mui-badge">1</span>
-									</span>
-									<div class="mui-media-body">报警信息</div>
-								</a>
-							</li>
-							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#" v-on:tap="toGIS">
-									<span class="mui-icon mui-icon-map"></span>
-									<div class="mui-media-body">GIS</div>
-								</a>
-							</li>
-						</ul>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toMineTap">
+                                    <span class="mui-icon mui-icon-videocam"></span>
+                                    <div class="mui-media-body">单灯控制</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toAmmeter">
+                                    <span class="mui-icon mui-icon-search"></span>
+                                    <div class="mui-media-body">电表抄读</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="">
+                                    <span class="mui-icon mui-icon-search"></span>
+                                    <div class="mui-media-body">水表抄读</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="">
+                                    <span class="mui-icon mui-icon-search"></span>
+                                    <div class="mui-media-body">阀门控制</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="">
+                                    <span class="mui-icon mui-icon-search"></span>
+                                    <div class="mui-media-body">一体水阀</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="">
+                                    <span class="mui-icon mui-icon-search"></span>
+                                    <div class="mui-media-body">水浸检测</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toControlGroup">
+                                    <span class="mui-icon  mui-icon-settings"></span>
+                                    <div class="mui-media-body">群组控制</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toScheduleSet">
+                                    <span class="mui-icon mui-icon-compose"></span>
+                                    <div class="mui-media-body">定时设置</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toGroupManage">
+                                    <span class="mui-icon mui-icon-bars"></span>
+                                    <div class="mui-media-body">群组管理</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toEnergy">
+                                    <span class="mui-icon mui-icon-search"></span>
+                                    <div class="mui-media-body">能耗分析</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toInfoCenter">
+                                    <span class="mui-icon mui-icon-email">
+                                        <span class="mui-badge">5</span>
+                                    </span>
+                                    <div class="mui-media-body">消息中心</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#">
+                                    <span class="mui-icon mui-icon-location"></span>
+                                    <div class="mui-media-body">帮助</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toInfoAlarm">
+                                    <span class="mui-icon mui-icon-info">
+                                        <span class="mui-badge">1</span>
+                                    </span>
+                                    <div class="mui-media-body">报警信息</div>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <a href="#" v-on:tap="toGIS">
+                                    <span class="mui-icon mui-icon-map"></span>
+                                    <div class="mui-media-body">GIS</div>
+                                </a>
+                            </li>
+                        </ul>
 
 					</div>
 				</div>
