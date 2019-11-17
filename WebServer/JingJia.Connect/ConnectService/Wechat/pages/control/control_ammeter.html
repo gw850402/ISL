@@ -106,6 +106,10 @@
 								mui.toast('电表：' + response.data.device + ' 控制失败。');
 							});
 					}
+				},
+				mounted: function() {
+					console.log("mui('.mui-switch')['switch']();");
+					mui('.mui-switch')['switch']();
 				}
 			});
 
@@ -117,7 +121,7 @@
 				},
 				created: function() {
 
-					mui.getJSON("../../json/devices.json", function(res) {
+					mui.getJSON("../../json/device_ammeter.json", function(res) {
 						app.devices = res;
 					});
 					//开始执行
@@ -143,6 +147,9 @@
 					toHome: function() {
 						mui.openWindow('../../index.html');
 					}
+				},
+				mounted: function() {
+					mui('.mui-switch')['switch']();
 				}
 			});
 		</script>

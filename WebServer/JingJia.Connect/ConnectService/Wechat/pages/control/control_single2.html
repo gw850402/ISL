@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入样式文件 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.2/lib/index.css">
+		
+		
+	</head>
+	<body>
+		<div id="app">
+			<!-- 左对齐 -->
+			<van-row type="flex">
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			</van-row>
+			
+			<!-- 居中 -->
+			<van-row type="flex" justify="center">
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			</van-row>
+			
+			<!-- 右对齐 -->
+			<van-row type="flex" justify="end">
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			</van-row>
+			
+			<!-- 两端对齐 -->
+			<van-row type="flex" justify="space-between">
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			</van-row>
+			
+			<!-- 每个元素的两侧间隔相等 -->
+			<van-row type="flex" justify="space-around">
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			  <van-col span="6">span: 6</van-col>
+			</van-row>
+			<van-button type="default">默认按钮</van-button>
+			<van-button type="primary">主要按钮</van-button>
+			<van-button type="info">信息按钮</van-button>
+			<van-button type="warning">警告按钮</van-button>
+			<van-button type="danger">危险按钮</van-button>
+		</div>
+		
+		
+		<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script>
+		<script>
+		  // 在 #app 标签下渲染一个按钮组件
+		  new Vue({
+		    el: '#app',
+		    template: `<van-button>按钮</van-button>`
+		  });
+		
+		  // 调用函数组件，弹出一个 Toast
+		  vant.Toast('提示');
+		</script>
+	</body>
+</html>

@@ -5,6 +5,9 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
+
+
+
 	</head>
 
 	<body>
@@ -27,24 +30,33 @@
 					<span class="mui-tab-label">系统</span>
 				</a>
 			</nav>
+
+
 			<div class="mui-content">
 
+
 				<!-- 	<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					逸夫楼/A座1层/1101
-					<div id="mySwitch" class="mui-switch mui-switch-mini mui-active">
-						<div class="mui-switch-handle"></div>
-					</div>
-				</li>
-			</ul> -->
+					<li class="mui-table-view-cell">
+						逸夫楼/A座1层/1101
+						<div id="mySwitch" class="mui-switch mui-switch-mini mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul> -->
 
 				<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
 			</div>
 		</div>
-		<script src="../../js/mui.js"></script>
+
 		<script src="../../js/api.js"></script>
 		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="../../js/vue.min.js"></script>
+
+		<script src="../../js/mui.js"></script>
+
+
+
 		<script type="text/javascript">
 			mui.init()
 
@@ -62,12 +74,15 @@
 				<li class="mui-table-view-cell">
 					{{device.name}}
 					<div class="mui-switch mui-switch-mini" v-bind:class="this.classMuiActive">
-						<div class="mui-switch-handle" v-on:tap="deleteImg(device)"></div>
+						<div class="mui-switch-handle" v-on:click="deleteImg(device)"></div>
 					</div>
 				</li>
 				</ul>`,
+				//v-bind:class="this.classMuiActive"
 				methods: {
 					deleteImg: function(e) {
+
+						console.log(e.onOff);
 						if (e.onOff) {
 							e.onOff = false;
 						} else {
@@ -82,14 +97,26 @@
 						} else {
 							url = BASEURL + "SetOff.ashx?id=" + deviceNum;
 						}
+						mui.toast("指令已发送.");
 						axios.get(url)
 							.then(function(response) {
 								console.log(response);
+								console.log("response.state:"+ response.data.state);
+								if(response.data.state == 1){
+									device.onOff = true;
+									
+								}else{
+									device.onOff = false;
+								}
+								console.log(device.onOff);
 							})
 							.catch(function(error) {
 								console.log(error);
 							});
 					}
+				},
+				mounted: function() {
+					mui('.mui-switch')['switch']();
 				}
 			});
 
@@ -99,7 +126,7 @@
 					devices: []
 				},
 				created: function() {
-					mui.getJSON("../../json/devices.json", function(res) {
+					mui.getJSON("../../json/device_light.json", function(res) {
 						app.devices = res;
 					});
 				},
@@ -110,7 +137,10 @@
 				}
 			});
 
-
+			// setTimeout(function() {
+			// 	console.log("mui('.mui-switch')['switch']();");
+			// 	mui('.mui-switch')['switch']();
+			// }, 1300);
 
 			// document.getElementById("mySwitch").addEventListener("toggle", function(event) {
 			// 	if (event.detail.isActive) {
