@@ -18,8 +18,10 @@ namespace ConnectService.bll
         {
             while (_isScan)
             {
-              //  CommonDefinition.MsgServer.SetMessage(DateTime.Now.ToString());
-                System.Threading.Thread.Sleep(20000);
+               // if (JingJia.PLCDriver.DriveFactory.GetPLCInstence().GetElectricity(22)>0)
+                //    CommonDefinition.MsgServer.SetMessage(ConnectService.Common.ResultJsonString(22, "有水", "成功"));
+            
+                System.Threading.Thread.Sleep(2000);
             }
         }
         public void Stop()
