@@ -67,25 +67,25 @@ index
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <a href="#" v-on:tap="">
+                                <a href="#" v-on:tap="toWaterMeter">
                                     <span class="mui-icon mui-icon-search"></span>
                                     <div class="mui-media-body">水表抄读</div>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <a href="#" v-on:tap="">
+                                <a href="#" v-on:tap="toTapControl">
                                     <span class="mui-icon mui-icon-search"></span>
                                     <div class="mui-media-body">阀门控制</div>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <a href="#" v-on:tap="">
+                                <a href="#" v-on:tap="toWaterTap">
                                     <span class="mui-icon mui-icon-search"></span>
                                     <div class="mui-media-body">一体水阀</div>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <a href="#" v-on:tap="">
+                                <a href="#" v-on:tap="toImmersionDetection">
                                     <span class="mui-icon mui-icon-search"></span>
                                     <div class="mui-media-body">水浸检测</div>
                                 </a>
@@ -158,10 +158,27 @@ index
 					//单灯控制
 					toMineTap: function() {
 						mui.openWindow('pages/control/control_single.html');
-					},
+                    },
+                    //电表抄读
 					toAmmeter: function() {
 						mui.openWindow('pages/control/control_ammeter.html');
-					},
+                    },
+                    //水表抄读
+                    toWaterMeter: function () {
+                        mui.openWindow('pages/control/water_ammeter.html');
+                    },
+                    //阀门控制
+                    toTapControl: function () {
+                        mui.openWindow('pages/control/tap_control.html');
+                    },
+                    //水阀一体
+                    toWaterTap: function () {
+                        mui.openWindow('pages/control/water_tap.html');
+                    },
+                    //水浸检测
+                    toImmersionDetection: function () {
+                        mui.openWindow('pages/control/immersion_detection.html');
+                    },
 					//群组控制
 					toControlGroup: function() {
 						mui.openWindow('pages/control/control_group.html');
