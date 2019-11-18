@@ -12,3 +12,8 @@
 /WebServer/JingJia.Connect/ConnectService/bin
 /WebServer/JingJia.Connect/ConnectService/obj
 /WebServer/JingJia.Connect/.vs/JingJia.Connect/v16
+/WebServer/JingJia.Connect/JingJia.PLCDriver/obj/Debug
+/WebServer/JingJia.Connect/JingJia.PLCDriver/bin/Debug
+/WebServer/JingJia.Connect/Jingjia.Connect.RestFulService/obj/Debug
+/WebServer/JingJia.Connect/ConnectService
+/WebServer/JingJia.Connect/.vs/JingJia.Connect/config
