@@ -5,6 +5,13 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-checkbox > input[type=checkbox]{
+				margin-top: -6px;
+				margin-bottom: 1px;
+				vertical-align: middle;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -36,7 +43,7 @@
 		<script src="../../js/mui.js"></script>
 		<script src="../../js/api.js"></script>
 		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="../../js/vue.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
 			var com_device = Vue.component('com-immersion-detection', {
@@ -48,7 +55,7 @@
 						}
 					}
 				},
-				template: `				
+				template: `
 				<li class="mui-table-view-cell ">
 					<div class="mui-checkbox">
 					  <label>{{device.name}}<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span></label>

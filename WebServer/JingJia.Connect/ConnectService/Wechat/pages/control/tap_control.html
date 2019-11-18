@@ -27,7 +27,7 @@
 				</a>
 			</nav>
 			<div class="mui-content">
-				<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>				
+				<com-tap-control v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-tap-control>				
 			</div>
 		</div>
 		<script src="../../js/mui.js"></script>
@@ -36,7 +36,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
 			mui.init();			
-			var com_device = Vue.component('com-device', {
+			var com_device = Vue.component('com-tap-control', {
 				props: ['device'],
 				data: function() {
 					return {
