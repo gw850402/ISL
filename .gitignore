@@ -1,0 +1,14 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/WebServer/JingJia.Connect/PLCTest/bin/Release
+/WebServer/JingJia.Connect/PLCTest/obj/x86/Debug
+/WebServer/JingJia.Connect/PLCTest/obj/x86/Release
+/WebServer/JingJia.Connect/JingJia.PLCDriver/bin/Release
+/WebServer/JingJia.Connect/JingJia.PLCDriver/obj/Release
+/WebServer/JingJia.Connect/Jingjia.Connect.RestFulService/bin/Release
+/WebServer/JingJia.Connect/Jingjia.Connect.RestFulService/obj/Release
+/WebServer/JingJia.Connect/ConnectService/bin
+/WebServer/JingJia.Connect/ConnectService/obj
+/WebServer/JingJia.Connect/.vs/JingJia.Connect/v16
