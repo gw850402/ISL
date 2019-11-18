@@ -8,6 +8,8 @@ namespace JingJia.PLCDriver
    public class DriveFactory
     {
        static GR10 _gr10 = null;
+
+        //
        public static GR10 GetPLCInstence()
        {
            if (_gr10 == null)
