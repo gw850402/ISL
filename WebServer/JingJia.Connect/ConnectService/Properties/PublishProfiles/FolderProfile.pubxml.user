@@ -10,16 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/19/2019 16:27:26</publishTime>
+      <publishTime>11/19/2019 16:34:14</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/19/2019 16:27:26</publishTime>
+      <publishTime>11/19/2019 16:34:14</publishTime>
     </File>
     <File Include="bin/ConnectService.dll">
-      <publishTime>11/19/2019 16:27:23</publishTime>
+      <publishTime>11/19/2019 16:34:05</publishTime>
     </File>
     <File Include="bin/ConnectService.pdb">
-      <publishTime>11/19/2019 16:27:23</publishTime>
+      <publishTime>11/19/2019 16:34:05</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.dll">
       <publishTime>11/19/2019 16:27:23</publishTime>
@@ -46,7 +46,7 @@
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/19/2019 16:27:25</publishTime>
+      <publishTime>11/19/2019 16:34:13</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>11/19/2019 16:27:23</publishTime>
@@ -223,13 +223,13 @@
       <publishTime>11/17/2019 17:31:18</publishTime>
     </File>
     <File Include="Wechat/pages/control/immersion_detection.html">
-      <publishTime>11/18/2019 21:40:25</publishTime>
+      <publishTime>11/19/2019 16:33:46</publishTime>
     </File>
     <File Include="Wechat/pages/control/new_file.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="Wechat/pages/control/water_ammeter.html">
-      <publishTime>11/18/2019 21:40:25</publishTime>
+      <publishTime>11/19/2019 16:32:20</publishTime>
     </File>
     <File Include="Wechat/pages/energy/energy_home.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
