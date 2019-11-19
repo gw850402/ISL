@@ -10,22 +10,22 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/17/2019 17:33:12</publishTime>
+      <publishTime>11/19/2019 16:27:26</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/17/2019 17:33:12</publishTime>
+      <publishTime>11/19/2019 16:27:26</publishTime>
     </File>
     <File Include="bin/ConnectService.dll">
-      <publishTime>11/17/2019 17:33:11</publishTime>
+      <publishTime>11/19/2019 16:27:23</publishTime>
     </File>
     <File Include="bin/ConnectService.pdb">
-      <publishTime>11/17/2019 17:33:11</publishTime>
+      <publishTime>11/19/2019 16:27:23</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.dll">
-      <publishTime>11/17/2019 15:18:34</publishTime>
+      <publishTime>11/19/2019 16:27:23</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.pdb">
-      <publishTime>11/17/2019 15:18:34</publishTime>
+      <publishTime>11/19/2019 16:27:23</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>11/10/2019 13:55:05</publishTime>
@@ -36,6 +36,9 @@
     <File Include="plc/GetElectricity.ashx">
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
+    <File Include="plc/GetWaterAlarm.ashx">
+      <publishTime>11/17/2019 17:44:31</publishTime>
+    </File>
     <File Include="plc/SetOff.ashx">
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
@@ -43,10 +46,10 @@
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/17/2019 17:33:12</publishTime>
+      <publishTime>11/19/2019 16:27:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/17/2019 14:10:05</publishTime>
+      <publishTime>11/19/2019 16:27:23</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>11/17/2019 10:49:00</publishTime>
@@ -196,7 +199,13 @@
       <publishTime>11/17/2019 16:04:40</publishTime>
     </File>
     <File Include="Wechat/json/device_water.json">
-      <publishTime>11/17/2019 15:57:49</publishTime>
+      <publishTime>11/18/2019 21:42:57</publishTime>
+    </File>
+    <File Include="Wechat/json/immersion_detection.json">
+      <publishTime>11/18/2019 19:02:02</publishTime>
+    </File>
+    <File Include="Wechat/json/water_ammeter.json">
+      <publishTime>11/18/2019 20:29:36</publishTime>
     </File>
     <File Include="Wechat/libs/echarts-all.js">
       <publishTime>11/17/2019 10:49:00</publishTime>
@@ -213,8 +222,14 @@
     <File Include="Wechat/pages/control/control_single.html">
       <publishTime>11/17/2019 17:31:18</publishTime>
     </File>
+    <File Include="Wechat/pages/control/immersion_detection.html">
+      <publishTime>11/18/2019 21:40:25</publishTime>
+    </File>
     <File Include="Wechat/pages/control/new_file.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
+    </File>
+    <File Include="Wechat/pages/control/water_ammeter.html">
+      <publishTime>11/18/2019 21:40:25</publishTime>
     </File>
     <File Include="Wechat/pages/energy/energy_home.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
@@ -235,7 +250,7 @@
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="Wechat/pages/scheduleSet/schedule_set.html">
-      <publishTime>11/17/2019 10:49:00</publishTime>
+      <publishTime>11/17/2019 17:44:31</publishTime>
     </File>
     <File Include="Wechat/pages/scheduleSet/schedule_set_detail.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
