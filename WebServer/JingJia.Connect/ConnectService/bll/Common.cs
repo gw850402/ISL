@@ -19,10 +19,23 @@ namespace ConnectService
         /// <returns></returns>
         public static String ResultJsonString(int deviceCode, string state, string msg)
         {
-            return "{\"code\": 0,\"msg\": \"" + msg + "\",\"device\":" + deviceCode + ",\"state\":"+state+"}";
+            return "{\"code\": 0,\"msg\": \"" + msg + "\",\"device\":" + deviceCode + ",\"state\":" + state + "}";
 
         }
 
+
+        /// <summary>
+        /// 返回执行结果字符串 新 张瀚文
+        /// </summary>
+        /// <param name="deviceNum"></param>
+        /// <param name="msg"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static String ResultJsonStringNew(int deviceNum, string msg, string data)
+        {
+            return "{\"code\": 0,\"msg\": \"" + msg + "\",\"data\":" + data + "}";
+
+        }
 
 
     }

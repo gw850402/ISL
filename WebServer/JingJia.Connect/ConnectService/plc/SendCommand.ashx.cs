@@ -1,6 +1,5 @@
 ﻿using Jingjia.PLCModel;
 using JingJia.PLCComm;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,22 +14,25 @@ namespace ConnectService.plc
     {
         public void ProcessRequest(HttpContext context)
         {
+            int deviceNum = 0;
+            int handleType = 0;
+            if (!int.TryParse(context.Request.Params[0], out deviceNum))
+            {
 
-            int code = 0;
-            float result = 0F;
-            string str = "";
+                context.Response.Write(Common.ResultJsonStringNew(1, "设备ID参数错误", null));
+                return;
+            }
+            if (!int.TryParse(context.Request.Params[1], out handleType))
+            {
+                context.Response.Write(Common.ResultJsonStringNew(1, "命令类型参数错误", null));
+                return;
+            }
+            EnumHandleType enumHandleType = (EnumHandleType)handleType;
+            
             context.Response.ContentType = "text/plain";
-
-            if (int.TryParse(context.Request.Params[0], out code))
-            {
-                PLCDeviceBase pLCDeviceBase = JingJia.PLCDriver.CommandQueueDriver.ExecuteCommand(code, EnumHandleType.电表抄录);
-                str = JsonConvert.SerializeObject(pLCDeviceBase);
-            }
-            else
-            {
-                code = 1;
-            }
-            context.Response.Write(Common.ResultJsonString(code, str, ""));
+            string data = JingJia.PLCDriver.CommandQueueDriver.ExecuteCommand(deviceNum, enumHandleType);
+           
+            context.Response.Write(Common.ResultJsonStringNew(deviceNum, "ok", data));
         }
 
         public bool IsReusable

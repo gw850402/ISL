@@ -50,14 +50,14 @@ namespace JingJia.PLCDriver
         /// <returns></returns>
         public byte[] SendData(byte[] sendData)
         {
-            byte[] resData = new byte[1024];
+            byte[] resData = new byte[512];
             lock (comLock)
             {
                 if (!_port.IsOpen)
                     _port.Open();
-                _port.Write(_sendData, 0, 12);
+                _port.Write(sendData, 0, sendData.Length);
                 System.Threading.Thread.Sleep(2000);
-                _port.Read(resData, 0, 32);
+                _port.Read(resData, 0, 12);
                 _port.Close();
             }
             return resData;

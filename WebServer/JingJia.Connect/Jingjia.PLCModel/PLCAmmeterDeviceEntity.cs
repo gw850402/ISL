@@ -25,5 +25,7 @@ namespace Jingjia.PLCModel
         /// </summary>
         public double Value { get; set; }
 
+
+
     }
 }

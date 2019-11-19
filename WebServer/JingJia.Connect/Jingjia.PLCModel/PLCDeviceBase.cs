@@ -60,10 +60,7 @@ namespace Jingjia.PLCModel
         public String Msg { get; set; }
 
 
-        /// <summary>
-        /// 设备功能枚举
-        /// </summary>
-        public EnumDeviceType DeviceType { get; set; }
+     
 
     }
 }

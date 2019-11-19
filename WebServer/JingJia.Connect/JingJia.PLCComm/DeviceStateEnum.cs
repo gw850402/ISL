@@ -31,6 +31,9 @@ namespace JingJia.PLCComm
     /// </summary>
     public enum EnumHandleType
     {
+        抄录 = 1,
+        通电 = 2,
+        断电 = 3,
         电表抄录 = 10,
         电表通电 = 11,
         电表断电 = 12,
