@@ -40,9 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandQueueDriver.cs" />
     <Compile Include="DriveFactory.cs" />
     <Compile Include="GR10.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JingJia.PLCComm\JingJia.PLCComm.csproj">
+      <Project>{d6468250-0847-49e0-ae1c-22bc38480f78}</Project>
+      <Name>JingJia.PLCComm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jingjia.PLCModel\Jingjia.PLCModel.csproj">
+      <Project>{69cc9b13-bda1-4de1-b7c0-f13590308d8e}</Project>
+      <Name>Jingjia.PLCModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

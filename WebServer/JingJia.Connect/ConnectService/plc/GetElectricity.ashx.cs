@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JingJia.PLCCache;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace ConnectService.plc
     public class GetElectricity : IHttpHandler
     {
 
+
         public void ProcessRequest(HttpContext context)
         {
             int code = 0;
@@ -22,7 +24,11 @@ namespace ConnectService.plc
                 {
                     result= JingJia.PLCDriver.DriveFactory.GetPLCInstence().GetElectricity(code);
                 }
-               
+
+               // PLCDeviceCacheObject.Instance[code.ToString()] = result;
+
+
+
                 context.Response.Write(ConnectService.Common.ResultJsonString(code, result.ToString(), "成功"));
             }
             catch (Exception ex)

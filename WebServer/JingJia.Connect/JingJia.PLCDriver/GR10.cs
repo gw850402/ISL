@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Jingjia.PLCModel;
+using JingJia.PLCComm;
+using System;
 using System.IO.Ports;
 
 namespace JingJia.PLCDriver
@@ -40,6 +42,27 @@ namespace JingJia.PLCDriver
                 _port.Close();
             }
         }
+
+        /// <summary>
+        /// 发送串口字节数据
+        /// </summary>
+        /// <param name="sendData"></param>
+        /// <returns></returns>
+        public byte[] SendData(byte[] sendData)
+        {
+            byte[] resData = new byte[1024];
+            lock (comLock)
+            {
+                if (!_port.IsOpen)
+                    _port.Open();
+                _port.Write(_sendData, 0, 12);
+                System.Threading.Thread.Sleep(2000);
+                _port.Read(resData, 0, 32);
+                _port.Close();
+            }
+            return resData;
+        }
+
         /// <summary>
         /// 断路器打开
         /// </summary>
@@ -168,8 +191,50 @@ namespace JingJia.PLCDriver
             {
                 _port.Close();
             }
-
         }
+
+        /// <summary>
+        /// 抄录
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public PLCDeviceBase Read(int code, EnumHandleType enumDeviceType) {
+
+            float r = 0f;
+            _sendData[0] = Convert.ToByte('S');
+            _sendData[1] = 7;
+            _sendData[2] = 63;
+            _sendData[3] = (byte)((code & 0x000000ff)); //表号
+            _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
+            _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
+            //_sendData[6] = 0;
+            _sendData[6] = Add(_sendData, 1, 6);
+            _sendData[7] = Crc(_sendData, 1, 6);
+
+            PLCDeviceBase pLCDeviceBase;
+            try
+            {
+                byte[] resByte = SendData(_sendData);
+
+                 pLCDeviceBase = new PLCDeviceBase(resByte[3],new byte[] { resByte[4], resByte[5], resByte[6] });
+
+                //待实现
+                if (enumDeviceType == EnumHandleType.电表抄录) 
+                {
+                    
+                }
+            }
+            catch
+            {
+                pLCDeviceBase = new PLCDeviceBase();
+                pLCDeviceBase.Msg = "串口数据通信异常。";
+            }
+        
+            return pLCDeviceBase;
+        }
+
+
+
         private byte Add(byte[] data, int start, int length)
         {
             int temp = 0;

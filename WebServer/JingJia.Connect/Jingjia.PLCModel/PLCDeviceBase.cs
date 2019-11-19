@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JingJia.PLCComm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,19 @@ namespace Jingjia.PLCModel
     /// </summary>
     public class PLCDeviceBase
     {
+
+
+        public PLCDeviceBase()
+        { 
+        
+        }
+
+        public PLCDeviceBase(byte metSts, byte[] metbase)
+        {
+            MetSts = metSts;
+            Metbase = metbase;
+        }
+
         /// <summary>
         /// 表号
         /// </summary>
@@ -26,6 +40,30 @@ namespace Jingjia.PLCModel
         /// 表计底数
         /// </summary>
         public byte[] Metbase { get; set; }
+
+        /// <summary>
+        /// 读取值
+        /// </summary>
+        public double Value
+        {
+            set {
+                Value = value;
+            }
+            get
+            {
+                double vaule = (Metbase[0] + Metbase[1] * 256 + Metbase[2] * 256 * 256) / 100F;
+                return vaule;
+            }
+        }
+
+
+        public String Msg { get; set; }
+
+
+        /// <summary>
+        /// 设备功能枚举
+        /// </summary>
+        public EnumDeviceType DeviceType { get; set; }
 
     }
 }

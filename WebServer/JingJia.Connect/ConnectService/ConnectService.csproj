@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -141,6 +144,9 @@
     <Compile Include="plc\GetWaterAlarm.ashx.cs">
       <DependentUpon>GetWaterAlarm.ashx</DependentUpon>
     </Compile>
+    <Compile Include="plc\SendCommand.ashx.cs">
+      <DependentUpon>SendCommand.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -156,6 +162,8 @@
     <Content Include="plc\GetElectricity.ashx" />
     <Content Include="MessageRegister.ashx" />
     <Content Include="plc\GetWaterAlarm.ashx" />
+    <Content Include="plc\SendCommand.ashx" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -171,9 +179,21 @@
     <Content Include="Wechat\json\device_water.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JingJia.PLCCache\JingJia.PLCCache.csproj">
+      <Project>{e6ae2ca0-fb58-4718-b049-d033e360c658}</Project>
+      <Name>JingJia.PLCCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JingJia.PLCComm\JingJia.PLCComm.csproj">
+      <Project>{D6468250-0847-49E0-AE1C-22BC38480F78}</Project>
+      <Name>JingJia.PLCComm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JingJia.PLCDriver\JingJia.PLCDriver.csproj">
       <Project>{47ac0d1a-514a-465e-a1e3-0fdd73ca8a13}</Project>
       <Name>JingJia.PLCDriver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jingjia.PLCModel\Jingjia.PLCModel.csproj">
+      <Project>{69CC9B13-BDA1-4DE1-B7C0-F13590308D8E}</Project>
+      <Name>Jingjia.PLCModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,0 +1,4 @@
+E:\01project\ISL\WebServer\JingJia.Connect\JingJia.PLCCache\bin\Debug\JingJia.PLCCache.dll
+E:\01project\ISL\WebServer\JingJia.Connect\JingJia.PLCCache\bin\Debug\JingJia.PLCCache.pdb
+E:\01project\ISL\WebServer\JingJia.Connect\JingJia.PLCCache\obj\Debug\JingJia.PLCCache.dll
+E:\01project\ISL\WebServer\JingJia.Connect\JingJia.PLCCache\obj\Debug\JingJia.PLCCache.pdb

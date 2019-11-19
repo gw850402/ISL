@@ -98,7 +98,7 @@ namespace JingJia.PLCCache
                 _dataDic.Add(index, value);
             }
         }
-
+        #endregion
 
     }
 }

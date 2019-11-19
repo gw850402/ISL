@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{69CC9B13-BDA1-4DE1-B7C0-F13590308D8E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Jingjia.PLCModel</RootNamespace>
     <AssemblyName>Jingjia.PLCModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -31,13 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="PLCAmmeterDeviceEntity.cs" />
     <Compile Include="PLCDeviceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JingJia.PLCComm\JingJia.PLCComm.csproj">
-      <Project>{D6468250-0847-49E0-AE1C-22BC38480F78}</Project>
+      <Project>{d6468250-0847-49e0-ae1c-22bc38480f78}</Project>
       <Name>JingJia.PLCComm</Name>
     </ProjectReference>
   </ItemGroup>
