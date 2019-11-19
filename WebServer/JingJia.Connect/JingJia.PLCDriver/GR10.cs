@@ -146,7 +146,7 @@ namespace JingJia.PLCDriver
                     _reciveData[0] = 0;
                     _reciveData[1] = 0;
                     _reciveData[2] = 0;
-                    //实践证明必须等待大约2秒钟，否则获取的数据为空
+                    //实践证明必须等待大约2秒钟，否则获取的数据为空 zhws
                     System.Threading.Thread.Sleep(2000);
                     _port.Read(_reciveData, 0, 9);
                 }
