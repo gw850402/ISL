@@ -131,9 +131,9 @@ namespace JingJia.PLCDriver
             _sendData[3] = (byte)((code & 0x000000ff)); //表号
             _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
             _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
-            _sendData[6] = 0;
-            _sendData[7] = Add(_sendData, 1, 6);
-            _sendData[8] = Crc(_sendData, 1, 6);
+            //_sendData[6] = 0;
+            _sendData[6] = Add(_sendData, 1, 6);
+            _sendData[7] = Crc(_sendData, 1, 6);
             
             try
             {
@@ -147,11 +147,10 @@ namespace JingJia.PLCDriver
                     _reciveData[1] = 0;
                     _reciveData[2] = 0;
                     //实践证明必须等待大约2秒钟，否则获取的数据为空
-                    //System.Threading.Thread.Sleep(2000);
-                    System.Threading.Thread.Sleep(1000);
+                    System.Threading.Thread.Sleep(2000);
                     _port.Read(_reciveData, 0, 9);
                 }
-                if (_reciveData[1] != 0)
+                if (_reciveData[0] != 0)
                 {
                     r = (_reciveData[4] + _reciveData[5] * 256 + _reciveData[6] * 256 * 256) / 100F;
                     return r;
