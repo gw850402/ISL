@@ -164,10 +164,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Wechat\fonts\mui.ttf" />
-    <Content Include="Wechat\json\devices.json" />
     <Content Include="Wechat\manifest.json" />
     <Content Include="Wechat\json\immersion_detection.json" />
-    <Content Include="Wechat\json\water_ammeter.json" />
     <Content Include="Wechat\json\device_ammeter.json" />
     <Content Include="Wechat\json\device_light.json" />
     <Content Include="Wechat\json\device_water.json" />
