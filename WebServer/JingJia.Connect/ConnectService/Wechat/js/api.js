@@ -1,4 +1,4 @@
 
 const BASEURL = "/plc/";
 
-const BASEURL_MES = "";
+const SendCommand = "http://localhost:51168/plc/SendCommand.ashx?";

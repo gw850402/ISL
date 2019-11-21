@@ -52,7 +52,7 @@
 					<div>
 					{{device.name}}
 					<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span>
-					<span class="mui-badge mui-badge-primary">{{device.value}}度</span>
+					<span class="mui-badge mui-badge-primary">{{device.value}}</span>
 					</div>
 					<div class="mui-switch mui-switch-mini" v-bind:class="this.classMuiActive">
 						<div class="mui-switch-handle" v-on:tap="deleteImg(device)"></div>
@@ -61,22 +61,23 @@
 				</ul>`,
 				methods: {
 					refreshValue: function(e) {
-						console.log(e);
-						var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
+						var url = SendCommand + "id="+ e.num+"&type=1";
 						mui.toast("指令已发送.");
 						axios.get(url)
 							.then(function(response) {
-								console.log(response);
-								e.value = response.data.state;
-								if (response.data.msg == "失败") {
-									mui.toast('电表' + e.num + ' 抄表失败');
-								} else if (response.data.msg == "成功") {
-									mui.toast('电表：' + e.num + ' 抄读成功：' + e.value);
+								var res = response.data;
+								console.log(res.data);
+								if(res.code == 0){
+									mui.toast('电表：' + e.num + ' 抄读成功：' + res.data.Value);
+								}else{
+									mui.toast('电表：' + e.num + ' 抄读失败。');
+									return;
 								}
+								e.value = res.data.Value;
 							})
 							.catch(function(error) {
 								console.log(error);
-								mui.toast('电表：' + e.num + ' 抄读失败。');
+								mui.toast('网络异常');
 							});
 					},
 					deleteImg: function(e) {
