@@ -12,6 +12,9 @@ namespace JingJia.PLCDriver.Jingjia
     {
 
 
+
+        public int DeviceNum { get; set; }
+
         /// <summary>
         /// 根据设备编号构建命令
         /// </summary>
@@ -19,6 +22,7 @@ namespace JingJia.PLCDriver.Jingjia
         /// <returns></returns>
         public override byte[] BuildCommandByte(int deviceNum)
         {
+            DeviceNum = deviceNum;
 
             SendHead = Convert.ToByte('S');//针头
             SendLen = 0x07;//长度
@@ -41,10 +45,9 @@ namespace JingJia.PLCDriver.Jingjia
         public override string BuildResultDataJson(byte[] data)
         {
             PLCDeviceBase pLCDeviceBase = new PLCDeviceBase(data[3], new byte[] { data[4], data[5], data[6] });
+            pLCDeviceBase.Num = DeviceNum;
             string str = JsonConvert.SerializeObject(pLCDeviceBase);
             return str;
         }
-
-
     }
 }

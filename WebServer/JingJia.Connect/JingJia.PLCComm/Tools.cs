@@ -60,5 +60,21 @@ namespace JingJia.PLCComm
             numBytes[2] = (byte)((num & 0x00FF0000) >> 16);
             return numBytes;
         }
+
+        /// <summary>
+        /// 将byte转换为一个长度为8的byte数组，数组每个值代表bit 
+        /// </summary>
+        /// <param name="b">状态字节</param>
+        /// <returns>解析数组</returns>
+        public static byte[] GetBooleanArray(byte b)
+        {
+            byte[] array = new byte[8];
+            for (int i = 7; i >= 0; i--)
+            {
+                array[i] = (byte)(b & 1);
+                b = (byte)(b >> 1);
+            }
+            return array;
+        }
     }
 }
