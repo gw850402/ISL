@@ -10,13 +10,17 @@ using System.Text;
 namespace JingJia.PLCDriver.Jingjia
 {
     /// <summary>
-    /// 抄收指定表号数据及状态（单项）（63）
+    /// 设置电表的工作状态（50）
     /// </summary>
-    public class Command63Read : PLCCommandBase
+    public class Command50Set : PLCCommandBase
     {
+        public Command50Set(EnumDeviceType enumDeviceType) {
+            EnumDeviceType = enumDeviceType;
+        }
 
         public int DeviceNum { get; set; }
 
+        protected EnumDeviceType EnumDeviceType;
         /// <summary>
         /// 根据设备编号构建命令
         /// </summary>
@@ -27,17 +31,31 @@ namespace JingJia.PLCDriver.Jingjia
             DeviceNum = deviceNum;
 
             SendHead = Convert.ToByte('S');//针头
-            SendLen = 0x07;//长度
-            SendCode = 0x3F;//命令码
+            SendLen = 11;//长度
+            SendCode = 50;//命令码
+            byte[] MetOpt = new byte[] { 128 };
+            byte[] MetSetSts = new byte[] { 0 };
+
+            byte[] MetPwr  = new byte[] { 0 }; //MetPwr
+            byte[] Group = new byte[] { 0 }; //Group
+
             MetNum = Tools.NumIntToArray(deviceNum);//表号
 
             List<byte> tempList = new List<byte>();
+            tempList.AddRange(MetOpt);
+            tempList.AddRange(MetSetSts);
+            tempList.AddRange(MetPwr);
+            tempList.AddRange(Group);
+
             tempList.AddRange(MetNum);
+
             DetailBytes = tempList.ToArray();//转化内容
 
             byte[] data = base.BuildCommand();
             return data;
         }
+
+
 
         /// <summary>
         /// 根据返回结果 转化JSON
@@ -52,24 +70,9 @@ namespace JingJia.PLCDriver.Jingjia
                 Result63ReadAmmeter res = new Result63ReadAmmeter(DeviceNum, data);
                 str = JsonConvert.SerializeObject(res);
             }
-            else if (enumDeviceType == EnumDeviceType.水表)
-            {
-                Result63ReadWatermeter res = new Result63ReadWatermeter(DeviceNum, data);
-                str = JsonConvert.SerializeObject(res);
-            }
             else if (enumDeviceType == EnumDeviceType.阀门)
             {
                 Result63ReadValve res = new Result63ReadValve(DeviceNum, data);
-                str = JsonConvert.SerializeObject(res);
-            }
-            else if (enumDeviceType == EnumDeviceType.温度)
-            {
-                Result63ReadTemperature res = new Result63ReadTemperature(DeviceNum, data);
-                str = JsonConvert.SerializeObject(res);
-            }
-            else if (enumDeviceType == EnumDeviceType.湿度)
-            {
-                Result63ReadHumidity res = new Result63ReadHumidity(DeviceNum, data);
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.灯控)
@@ -79,5 +82,6 @@ namespace JingJia.PLCDriver.Jingjia
             }
             return str;
         }
+
     }
 }

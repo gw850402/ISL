@@ -34,7 +34,7 @@ namespace JingJia.PLCDriver
             gr10.Open("COM4");
 
             //命令对象工厂
-            PLCCommandBase pLCCommandBase = DriveFactory.GetPLCCommander(handleType);
+            PLCCommandBase pLCCommandBase = DriveFactory.GetPLCCommander(handleType, enumDeviceType);
 
             //获取命令码
             byte[] sendData = pLCCommandBase.BuildCommandByte(num);

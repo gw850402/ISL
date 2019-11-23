@@ -20,13 +20,18 @@ namespace JingJia.PLCDriver
            }
            return _gr10;
        }
-        public static PLCCommandBase GetPLCCommander(EnumHandleType enumHandleType)
+        public static PLCCommandBase GetPLCCommander(EnumHandleType enumHandleType, EnumDeviceType enumDeviceType)
         {
 
             if (enumHandleType == EnumHandleType.抄录)
             {
-                return new Jingjia.Command63rRead();
+                return new Jingjia.Command63Read();
             }
+            else if (enumHandleType == EnumHandleType.通电) { 
+            
+                return new Jingjia.Command50Set(enumDeviceType);
+            }
+
             else
                 throw new Exception("未定义");
         }
