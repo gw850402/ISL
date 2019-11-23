@@ -36,18 +36,26 @@ namespace JingJia.PLCDriver.Jingjia
             SendHead = Convert.ToByte('S');//针头
             SendLen = 11;//长度
             SendCode = 50;//命令码
-            byte[] MetOpt = new byte[] { 128 };
+           // byte[] MetOpt = new byte[] { 128 };
 
-            byte[] MetSetSts;
-            if (EnumHandleType == EnumHandleType.通电)
+            byte[] MetSetSts = new byte[] { 0 };
+            if (EnumHandleType == EnumHandleType.通电Or全开)
             {
-                MetSetSts = new byte[] { 0 };
+                MetSetSts = new byte[] { 0x80,0x00 };
             }
-            else
+            else if (EnumHandleType == EnumHandleType.断电Or关三分之二)
             {
-                MetSetSts = new byte[] { 128 };
+                MetSetSts = new byte[] { 0x80,0x80 };
             }
-
+            else if (EnumHandleType == EnumHandleType.告警Or全关)
+            {
+                MetSetSts = new byte[] { 0x20,0x40 };
+            }
+            else if (EnumHandleType == EnumHandleType.关告警Or关三分之一)
+            {
+                MetSetSts = new byte[] { 0x20, 0x00 };
+            }
+            
             
             byte[] MetPwr  = new byte[] { 0 }; //MetPwr
             byte[] Group = new byte[] { 0 }; //Group
@@ -55,7 +63,7 @@ namespace JingJia.PLCDriver.Jingjia
             MetNum = Tools.NumIntToArray(deviceNum);//表号
 
             List<byte> tempList = new List<byte>();
-            tempList.AddRange(MetOpt);
+            //tempList.AddRange(MetOpt);
             tempList.AddRange(MetSetSts);
             tempList.AddRange(MetPwr);
             tempList.AddRange(Group);

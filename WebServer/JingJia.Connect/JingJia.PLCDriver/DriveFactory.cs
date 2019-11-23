@@ -27,16 +27,25 @@ namespace JingJia.PLCDriver
             {
                 return new Jingjia.Command63Read();
             }
-            else if (enumHandleType == EnumHandleType.通电 ) { 
+            else if (enumHandleType == EnumHandleType.通电Or全开 ) { 
             
                 return new Jingjia.Command50Set(enumHandleType,enumDeviceType);
             }
-            else if (enumHandleType == EnumHandleType.断电)
+            else if (enumHandleType == EnumHandleType.断电Or关三分之二)
             {
 
                 return new Jingjia.Command50Set(enumHandleType, enumDeviceType);
             }
+            else if (enumHandleType == EnumHandleType.告警Or全关)
+            {
 
+                return new Jingjia.Command50Set(enumHandleType, enumDeviceType);
+            }
+            else if (enumHandleType == EnumHandleType.关告警Or关三分之一)
+            {
+
+                return new Jingjia.Command50Set(enumHandleType, enumDeviceType);
+            }
             else
                 throw new Exception("未定义");
         }

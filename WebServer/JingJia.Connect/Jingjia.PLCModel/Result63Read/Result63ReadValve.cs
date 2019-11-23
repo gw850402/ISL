@@ -24,20 +24,20 @@ namespace Jingjia.PLCModel.Result63Read
         public Result63ReadValve(int deviceNum, byte[] data)
                  : base(deviceNum, data)
         {
-            if (MetStsArray[0] == 0 || MetStsArray[1] == 0)
+            if (MetStsArray[0] == 0 || MetStsArray[4] == 0)
 
             {
                 onOff = "全开";
             }
-            else if (MetStsArray[0] == 1 || MetStsArray[1] == 0)
+            else if (MetStsArray[0] == 1 || MetStsArray[4] == 0)
             {
                 onOff = "1/3开";
             }
-            else if (MetStsArray[0] == 0 || MetStsArray[1] == 1)
+            else if (MetStsArray[0] == 0 || MetStsArray[4] == 1)
             {
                 onOff = "2/3开";
             }
-            else if (MetStsArray[0] == 1 || MetStsArray[1] == 1)
+            else if (MetStsArray[0] == 1 || MetStsArray[4] == 1)
             {
                 onOff = "全关";
             }

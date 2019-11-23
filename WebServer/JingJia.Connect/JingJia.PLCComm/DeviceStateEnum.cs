@@ -32,8 +32,11 @@ namespace JingJia.PLCComm
     public enum EnumHandleType
     {
         抄录 = 1,
-        通电 = 2,
-        断电 = 3
+        通电Or全开 = 2,
+        断电Or关三分之二 = 3,
+        告警Or全关 = 4,
+        关告警Or关三分之一 = 5,
+
     }
 
 }
