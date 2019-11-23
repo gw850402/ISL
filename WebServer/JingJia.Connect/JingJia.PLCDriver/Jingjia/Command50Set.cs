@@ -14,13 +14,17 @@ namespace JingJia.PLCDriver.Jingjia
     /// </summary>
     public class Command50Set : PLCCommandBase
     {
-        public Command50Set(EnumDeviceType enumDeviceType) {
+        public Command50Set(EnumHandleType enumHandleType, EnumDeviceType enumDeviceType) {
             EnumDeviceType = enumDeviceType;
+            EnumHandleType = enumHandleType;
         }
 
         public int DeviceNum { get; set; }
 
         protected EnumDeviceType EnumDeviceType;
+
+        protected EnumHandleType EnumHandleType;
+
         /// <summary>
         /// 根据设备编号构建命令
         /// </summary>
@@ -29,13 +33,22 @@ namespace JingJia.PLCDriver.Jingjia
         public override byte[] BuildCommandByte(int deviceNum)
         {
             DeviceNum = deviceNum;
-
             SendHead = Convert.ToByte('S');//针头
             SendLen = 11;//长度
             SendCode = 50;//命令码
             byte[] MetOpt = new byte[] { 128 };
-            byte[] MetSetSts = new byte[] { 0 };
 
+            byte[] MetSetSts;
+            if (EnumHandleType == EnumHandleType.通电)
+            {
+                MetSetSts = new byte[] { 0 };
+            }
+            else
+            {
+                MetSetSts = new byte[] { 128 };
+            }
+
+            
             byte[] MetPwr  = new byte[] { 0 }; //MetPwr
             byte[] Group = new byte[] { 0 }; //Group
 

@@ -27,9 +27,14 @@ namespace JingJia.PLCDriver
             {
                 return new Jingjia.Command63Read();
             }
-            else if (enumHandleType == EnumHandleType.通电) { 
+            else if (enumHandleType == EnumHandleType.通电 ) { 
             
-                return new Jingjia.Command50Set(enumDeviceType);
+                return new Jingjia.Command50Set(enumHandleType,enumDeviceType);
+            }
+            else if (enumHandleType == EnumHandleType.断电)
+            {
+
+                return new Jingjia.Command50Set(enumHandleType, enumDeviceType);
             }
 
             else
