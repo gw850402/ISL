@@ -61,6 +61,21 @@ namespace JingJia.PLCDriver.Jingjia
                 Result63ReadValve res = new Result63ReadValve(DeviceNum, data);
                 str = JsonConvert.SerializeObject(res);
             }
+            else if (enumDeviceType == EnumDeviceType.温度)
+            {
+                Result63ReadTemperature res = new Result63ReadTemperature(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.湿度)
+            {
+                Result63ReadHumidity res = new Result63ReadHumidity(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.灯控)
+            {
+                Result63ReadLight res = new Result63ReadLight(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
             return str;
         }
     }

@@ -36,10 +36,4 @@ namespace JingJia.PLCComm
         断电 = 3
     }
 
-    
-    public enum EnumStateAmmeter
-    {
-        电表通电 = 0,
-        电表断电 = 1,
-    }
 }

@@ -37,6 +37,9 @@
   <ItemGroup>
     <Compile Include="Result63Read\Result63ReadAmmeter.cs" />
     <Compile Include="Result63Read\Result63ReadBase.cs" />
+    <Compile Include="Result63Read\Result63ReadHumidity.cs" />
+    <Compile Include="Result63Read\Result63ReadLight.cs" />
+    <Compile Include="Result63Read\Result63ReadTemperature.cs" />
     <Compile Include="Result63Read\Result63ReadWatermeter.cs" />
     <Compile Include="Result63Read\Result63ReadValve.cs" />
   </ItemGroup>
