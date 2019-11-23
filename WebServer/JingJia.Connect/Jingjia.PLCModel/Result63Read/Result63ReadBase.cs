@@ -23,7 +23,7 @@ namespace Jingjia.PLCModel
         /// <summary>
         /// 数值单位
         /// </summary>
-        protected string Unit { get; set; }
+        protected  string Unit { get; set; }
 
         /// <summary>
         /// 表号
