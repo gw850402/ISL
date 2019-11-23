@@ -1,8 +1,0 @@
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\obj\Debug\Jingjia.PLCModel.csprojAssemblyReference.cache
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\bin\Debug\Jingjia.PLCModel.dll
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\bin\Debug\Jingjia.PLCModel.pdb
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\bin\Debug\JingJia.PLCComm.dll
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\bin\Debug\JingJia.PLCComm.pdb
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\obj\Debug\Jingjia.PLCModel.csproj.CopyComplete
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\obj\Debug\Jingjia.PLCModel.dll
-E:\01project\ISL\WebServer\JingJia.Connect\Jingjia.PLCModel\obj\Debug\Jingjia.PLCModel.pdb
