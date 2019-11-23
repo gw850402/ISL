@@ -25,7 +25,7 @@ namespace JingJia.PLCDriver
 
             if (enumHandleType == EnumHandleType.抄录)
             {
-                return new Jingjia.AmmeterRead();
+                return new Jingjia.Command63rRead();
             }
             else
                 throw new Exception("未定义");

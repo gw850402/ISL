@@ -46,9 +46,8 @@
     <Compile Include="CommandQueueDriver.cs" />
     <Compile Include="DriveFactory.cs" />
     <Compile Include="GR10.cs" />
-    <Compile Include="ICommand.cs" />
     <Compile Include="PLCCommandBase.cs" />
-    <Compile Include="Jingjia\AmmeterRead.cs" />
+    <Compile Include="Jingjia\Command63Read.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

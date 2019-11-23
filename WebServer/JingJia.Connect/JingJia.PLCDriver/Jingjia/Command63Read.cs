@@ -9,10 +9,8 @@ using System.Text;
 
 namespace JingJia.PLCDriver.Jingjia
 {
-    public class AmmeterRead : PLCCommandBase
+    public class Command63Read : PLCCommandBase
     {
-
-
 
         public int DeviceNum { get; set; }
 
