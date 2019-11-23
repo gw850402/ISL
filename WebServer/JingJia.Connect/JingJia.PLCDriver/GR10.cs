@@ -198,36 +198,36 @@ namespace JingJia.PLCDriver
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public PLCDeviceBase Read(int code, EnumHandleType enumDeviceType) {
+        //public PLCDeviceBase Read(int code, EnumHandleType enumDeviceType) {
 
-            float r = 0f;
-            _sendData[0] = Convert.ToByte('S');
-            _sendData[1] = 7;
-            _sendData[2] = 63;
-            _sendData[3] = (byte)((code & 0x000000ff)); //表号
-            _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
-            _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
-            //_sendData[6] = 0;
-            _sendData[6] = Add(_sendData, 1, 6);
-            _sendData[7] = Crc(_sendData, 1, 6);
+        //    float r = 0f;
+        //    _sendData[0] = Convert.ToByte('S');
+        //    _sendData[1] = 7;
+        //    _sendData[2] = 63;
+        //    _sendData[3] = (byte)((code & 0x000000ff)); //表号
+        //    _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
+        //    _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
+        //    //_sendData[6] = 0;
+        //    _sendData[6] = Add(_sendData, 1, 6);
+        //    _sendData[7] = Crc(_sendData, 1, 6);
 
-            PLCDeviceBase pLCDeviceBase;
-            try
-            {
-                byte[] resByte = SendData(_sendData);
+        //    PLCDeviceBase pLCDeviceBase;
+        //    try
+        //    {
+        //        byte[] resByte = SendData(_sendData);
 
-                 pLCDeviceBase = new PLCDeviceBase(resByte[3],new byte[] { resByte[4], resByte[5], resByte[6] });
+        //         pLCDeviceBase = new PLCDeviceBase(1, resByte);
 
                 
-            }
-            catch
-            {
-                pLCDeviceBase = new PLCDeviceBase();
-                pLCDeviceBase.Msg = "串口数据通信异常。";
-            }
+        //    }
+        //    catch
+        //    {
+        //        pLCDeviceBase = new PLCDeviceBase();
+        //        pLCDeviceBase.Msg = "串口数据通信异常。";
+        //    }
         
-            return pLCDeviceBase;
-        }
+        //    return pLCDeviceBase;
+        //}
 
 
 

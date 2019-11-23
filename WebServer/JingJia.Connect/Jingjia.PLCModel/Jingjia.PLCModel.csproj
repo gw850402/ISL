@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PLCAmmeterDeviceEntity.cs" />
-    <Compile Include="PLCDeviceBase.cs" />
+    <Compile Include="Result63ReadBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JingJia.PLCComm\JingJia.PLCComm.csproj">
