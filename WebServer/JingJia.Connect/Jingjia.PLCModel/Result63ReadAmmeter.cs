@@ -11,9 +11,9 @@ namespace Jingjia.PLCModel
     /// zhw
     /// 2019-11-19
     /// </summary>
-    public class PLCAmmeterDeviceEntity : Result63ReadBase
+    public class Result63ReadAmmeter : Result63ReadBase
     {
-        public PLCAmmeterDeviceEntity(int deviceNum, byte[] data)
+        public Result63ReadAmmeter(int deviceNum, byte[] data)
             : base(deviceNum, data)
         {
 

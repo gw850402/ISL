@@ -47,11 +47,8 @@ namespace JingJia.PLCDriver.Jingjia
             string str = "null";
             if (enumDeviceType == EnumDeviceType.电表)
             {
-
-                PLCAmmeterDeviceEntity pLCDeviceBase = new PLCAmmeterDeviceEntity(DeviceNum, data);
-
-                str = JsonConvert.SerializeObject(pLCDeviceBase);
-
+                Result63ReadAmmeter result63ReadAmmeter = new Result63ReadAmmeter(DeviceNum, data);
+                str = JsonConvert.SerializeObject(result63ReadAmmeter);
             }
             else if (enumDeviceType == EnumDeviceType.水表)
             {
