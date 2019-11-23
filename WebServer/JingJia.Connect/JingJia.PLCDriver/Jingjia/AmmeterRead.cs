@@ -1,4 +1,5 @@
 ﻿using Jingjia.PLCModel;
+using Jingjia.PLCModel.Result63Read;
 using JingJia.PLCComm;
 using Newtonsoft.Json;
 using System;
@@ -44,18 +45,22 @@ namespace JingJia.PLCDriver.Jingjia
         /// <returns></returns>
         public override string BuildResultDataJson(byte[] data, EnumDeviceType enumDeviceType)
         {
-            string str = "null";
+            string str = "无此类型设备";
             if (enumDeviceType == EnumDeviceType.电表)
             {
-                Result63ReadAmmeter result63ReadAmmeter = new Result63ReadAmmeter(DeviceNum, data);
-                str = JsonConvert.SerializeObject(result63ReadAmmeter);
+                Result63ReadAmmeter res = new Result63ReadAmmeter(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.水表)
             {
-
+                Result63ReadWatermeter res = new Result63ReadWatermeter(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
             }
-
-
+            else if (enumDeviceType == EnumDeviceType.阀门)
+            {
+                Result63ReadValve res = new Result63ReadValve(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
             return str;
         }
     }

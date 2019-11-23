@@ -8,7 +8,7 @@ namespace Jingjia.PLCModel.Result63Read
     /// <summary>
     /// 阀门返回结果
     /// </summary>
-    public class Result64ReadValve : Result63ReadBase
+    public class Result63ReadValve : Result63ReadBase
     {
 
         // <summary>
@@ -21,7 +21,7 @@ namespace Jingjia.PLCModel.Result63Read
         /// </summary>
         /// <param name="deviceNum"></param>
         /// <param name="data"></param>
-        public Result64ReadValve(int deviceNum, byte[] data)
+        public Result63ReadValve(int deviceNum, byte[] data)
                  : base(deviceNum, data)
         {
             if (MetStsArray[0] == 0 || MetStsArray[1] == 0)

@@ -38,7 +38,7 @@
     <Compile Include="Result63Read\Result63ReadAmmeter.cs" />
     <Compile Include="Result63Read\Result63ReadBase.cs" />
     <Compile Include="Result63Read\Result63ReadWatermeter.cs" />
-    <Compile Include="Result63Read\Result64ReadValve.cs" />
+    <Compile Include="Result63Read\Result63ReadValve.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JingJia.PLCComm\JingJia.PLCComm.csproj">
