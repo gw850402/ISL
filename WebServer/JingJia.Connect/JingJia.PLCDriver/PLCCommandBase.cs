@@ -94,7 +94,7 @@ namespace JingJia.PLCDriver
         /// </summary>
         /// <param name="data">返回结果</param>
         /// <returns>JSON</returns>
-        public virtual string BuildResultDataJson(byte[] data)
+        public virtual string BuildResultDataJson(byte[] data, EnumDeviceType enumDeviceType)
         {
             throw new Exception("基类方法不允许直接调用！");
         }

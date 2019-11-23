@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Jingjia.PLCModel;
+﻿
+
+using System;
 using JingJia.PLCComm;
 
 namespace JingJia.PLCDriver
@@ -28,19 +26,9 @@ namespace JingJia.PLCDriver
         /// <param name="num">设备编号</param>
         /// <param name="handleType">执行类型</param>
         /// <returns>返回执行结果</returns>
-        public static string ExecuteCommand(int num, EnumHandleType handleType)
+        public static string ExecuteCommand(int num, EnumHandleType handleType, EnumDeviceType enumDeviceType)
         {
             GR10 gr10 = DriveFactory.GetPLCInstence();
-
-            //    PLCDeviceBase pLCDeviceBase = new PLCDeviceBase();
-
-            //    if (handleType == EnumHandleType.抄录) {
-            //         pLCDeviceBase = gr10.Read(num, handleType);
-            //    }
-
-
-
-            //    return pLCDeviceBase;
 
             //打开串口
             gr10.Open("COM4");
@@ -55,7 +43,7 @@ namespace JingJia.PLCDriver
             byte[] resData = gr10.SendData(sendData);
 
             //转化返回结果
-            return pLCCommandBase.BuildResultDataJson(resData);
+            return pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
             
         }
     }

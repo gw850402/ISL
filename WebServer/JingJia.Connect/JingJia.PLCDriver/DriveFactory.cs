@@ -22,6 +22,7 @@ namespace JingJia.PLCDriver
        }
         public static PLCCommandBase GetPLCCommander(EnumHandleType enumHandleType)
         {
+
             if (enumHandleType == EnumHandleType.抄录)
             {
                 return new Jingjia.AmmeterRead();

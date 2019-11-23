@@ -218,11 +218,7 @@ namespace JingJia.PLCDriver
 
                  pLCDeviceBase = new PLCDeviceBase(resByte[3],new byte[] { resByte[4], resByte[5], resByte[6] });
 
-                //待实现
-                if (enumDeviceType == EnumHandleType.电表抄录) 
-                {
-                    
-                }
+                
             }
             catch
             {

@@ -42,11 +42,20 @@ namespace JingJia.PLCDriver.Jingjia
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public override string BuildResultDataJson(byte[] data)
+        public override string BuildResultDataJson(byte[] data, EnumDeviceType enumDeviceType)
         {
-            PLCDeviceBase pLCDeviceBase = new PLCDeviceBase(data[3], new byte[] { data[4], data[5], data[6] });
-            pLCDeviceBase.Num = DeviceNum;
-            string str = JsonConvert.SerializeObject(pLCDeviceBase);
+            string str = "null";
+            if (enumDeviceType == EnumDeviceType.电表) {
+
+                PLCDeviceBase pLCDeviceBase = new PLCDeviceBase(data[3], new byte[] { data[4], data[5], data[6] });
+                pLCDeviceBase.Num = DeviceNum;
+                str = JsonConvert.SerializeObject(pLCDeviceBase);
+
+            } else if (enumDeviceType == EnumDeviceType.水表) { 
+            
+            }
+               
+
             return str;
         }
     }
