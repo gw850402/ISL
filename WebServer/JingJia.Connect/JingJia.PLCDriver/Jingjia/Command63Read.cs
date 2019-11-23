@@ -77,6 +77,17 @@ namespace JingJia.PLCDriver.Jingjia
                 Result63ReadLight res = new Result63ReadLight(DeviceNum, data);
                 str = JsonConvert.SerializeObject(res);
             }
+            else if (enumDeviceType == EnumDeviceType.光感度)
+            {
+                Result63ReadOptical res = new Result63ReadOptical(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.水浸)
+            {
+                Result63ReadWater res = new Result63ReadWater(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+
             return str;
         }
     }
