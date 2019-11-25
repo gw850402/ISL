@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using JingJia.PLCCache;
 using JingJia.PLCComm;
 using Newtonsoft.Json;
@@ -44,6 +45,8 @@ namespace JingJia.PLCDriver
                 {
                     ress.Add(item);
                 }
+
+                ress.RemoveAt(0);
                 string str = JsonConvert.SerializeObject(ress);
 
                 return str;
@@ -53,7 +56,7 @@ namespace JingJia.PLCDriver
             GR10 gr10 = DriveFactory.GetPLCInstence();
 
             //打开串口
-            gr10.Open("COM4");
+            //gr10.Open("COM4");
 
             //命令对象工厂
             PLCCommandBase pLCCommandBase = DriveFactory.GetPLCCommander(handleType, enumDeviceType);
@@ -64,11 +67,17 @@ namespace JingJia.PLCDriver
             //发送命令 返回结果
             byte[] resData = gr10.SendData(sendData);
 
+
             string json = pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
             //_pLCDeviceCache = PLCDeviceCacheObject.Instance;
             //_pLCDeviceCache[num.ToString()] = json;
             //转化返回结果
             return json;
+        }
+
+        private static void _port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

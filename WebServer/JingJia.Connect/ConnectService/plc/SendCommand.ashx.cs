@@ -20,7 +20,6 @@ namespace ConnectService.plc
 
             if (!int.TryParse(context.Request.Params[0], out deviceNum))
             {
-
                 context.Response.Write(Common.ResultJsonStringNew(1, "设备ID参数错误", null));
                 return;
             }

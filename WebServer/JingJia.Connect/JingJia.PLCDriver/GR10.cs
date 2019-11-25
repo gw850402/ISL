@@ -1,7 +1,9 @@
 ﻿using Jingjia.PLCModel;
+using JingJia.PLCCache;
 using JingJia.PLCComm;
 using System;
 using System.IO.Ports;
+using System.Text;
 
 namespace JingJia.PLCDriver
 {
@@ -14,6 +16,8 @@ namespace JingJia.PLCDriver
         byte[] _sendData = new byte[1024];
         byte[] _reciveData = new byte[1024];
         static object comLock = new object();
+
+
         public void Open(string comPort)
         {
             if(_port==null)
@@ -32,7 +36,9 @@ namespace JingJia.PLCDriver
                 _port.Open();
             _port.Write(_sendData, 0, 8);
             _port.Read(_reciveData, 0, 2);
-            _port.Close();
+            // _port.Close();
+            // 修改串口流保存至缓存 zhw  2019-11-25 20:30:50
+            PLCDeviceCacheObject.Instance["com"] = _port;
 
         }
         public void Close()
@@ -42,6 +48,8 @@ namespace JingJia.PLCDriver
                 _port.Close();
             }
         }
+
+
 
         /// <summary>
         /// 发送串口字节数据
@@ -53,15 +61,58 @@ namespace JingJia.PLCDriver
             byte[] resData = new byte[512];
             lock (comLock)
             {
-                if (!_port.IsOpen)
-                    _port.Open();
+                //if (!_port.IsOpen)
+                //    _port.Open();
+                //_port.Write(sendData, 0, sendData.Length);
+                //System.Threading.Thread.Sleep(2000);
+                //_port.Read(resData, 0, 12);
+                //_port.Close();
+
+                _port = (SerialPort)PLCDeviceCacheObject.Instance["com"];
+                if (_port == null)
+                {
+                    if (!_port.IsOpen)
+                        _port.Open();
+                }
+
+
+                _port.DataReceived += _port_DataReceived;
+
                 _port.Write(sendData, 0, sendData.Length);
-                System.Threading.Thread.Sleep(2000);
-                _port.Read(resData, 0, 12);
-                _port.Close();
+                //System.Threading.Thread.Sleep(2000);
+                //_port.Read(resData, 0, 128);
+                //_port.Close();
+
+
             }
-            return resData;
+
+            while (nex == false)
+            {
+                System.Threading.Thread.Sleep(100);
+            }
+
+            return buf;
         }
+
+        private StringBuilder builder = new StringBuilder();//避免在事件处理方法中反复的创建，定义到外面。
+        private long received_count = 0;//接收计数
+        private long send_count = 0;//发送计数
+        int n = 0;
+        byte[] buf;
+        bool nex = false;
+
+        private void _port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            n = _port.BytesToRead;//先记录下来，避免某种原因，人为的原因，操作几次之间时间长，缓存不一致
+            if (n < 7) return;
+            buf = new byte[n];//声明一个临时数组存储当前来的串口数据
+            received_count += n;//增加接收计数
+            _port.Read(buf, 0, n);//读取缓冲数据
+            builder.Clear();//清除字符串构造器的内容
+            nex = true;
+        }
+
+
 
         /// <summary>
         /// 断路器打开

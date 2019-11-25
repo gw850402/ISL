@@ -16,7 +16,7 @@ namespace JingJia.PLCDriver
            if (_gr10 == null)
            {
                _gr10 = new GR10();
-               _gr10.Open(System.Configuration.ConfigurationSettings.AppSettings["COM"]);           
+               //_gr10.Open(System.Configuration.ConfigurationSettings.AppSettings["COM"]);           
            }
            return _gr10;
        }

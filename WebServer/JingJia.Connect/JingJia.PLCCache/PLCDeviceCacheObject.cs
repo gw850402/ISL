@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.IO.Ports;
 namespace JingJia.PLCCache
 {
     /// <summary>
@@ -12,6 +12,12 @@ namespace JingJia.PLCCache
     /// </summary>
     public class PLCDeviceCacheObject
     {
+
+        /// <summary>
+        /// 串口
+        /// </summary>
+        public  SerialPort cachePort { get; set; }
+
         /// <summary>
         /// 字典
         /// </summary>
