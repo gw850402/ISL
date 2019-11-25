@@ -1,22 +1,27 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
+using JingJia.PLCCache;
 using JingJia.PLCComm;
+using Newtonsoft.Json;
 
 namespace JingJia.PLCDriver
 {
-    public class CommandQueueDriver 
+    public class CommandQueueDriver
     {
 
+        static PLCDeviceCacheObject _pLCDeviceCache;
+        public CommandQueueDriver()
+        {
+            _pLCDeviceCache = PLCDeviceCacheObject.Instance;
+        }
 
 
-      
+
         public static void AddCommand(int num, EnumHandleType handleType)
         {
-
             throw new NotImplementedException();
-
-
         }
 
 
@@ -28,6 +33,23 @@ namespace JingJia.PLCDriver
         /// <returns>返回执行结果</returns>
         public static string ExecuteCommand(int num, EnumHandleType handleType, EnumDeviceType enumDeviceType)
         {
+            if (handleType == EnumHandleType.获取所有设备缓存) {
+
+                _pLCDeviceCache = PLCDeviceCacheObject.Instance;
+                Dictionary<string, object> _dataDic = _pLCDeviceCache.GetAll();
+
+                List<object> ress = new List<object>();
+
+                foreach (object item in _dataDic.Values)
+                {
+                    ress.Add(item);
+                }
+                string str = JsonConvert.SerializeObject(ress);
+
+                return str;
+            }
+           
+
             GR10 gr10 = DriveFactory.GetPLCInstence();
 
             //打开串口
@@ -42,9 +64,11 @@ namespace JingJia.PLCDriver
             //发送命令 返回结果
             byte[] resData = gr10.SendData(sendData);
 
+            string json = pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
+            //_pLCDeviceCache = PLCDeviceCacheObject.Instance;
+            //_pLCDeviceCache[num.ToString()] = json;
             //转化返回结果
-            return pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
-            
+            return json;
         }
     }
 }

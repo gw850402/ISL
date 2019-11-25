@@ -51,6 +51,14 @@ namespace JingJia.PLCCache
             }
         }
 
+        /// <summary>
+        /// 获取全部缓存
+        /// </summary>
+        public Dictionary<string, object> GetAll()
+        {
+            return _dataDic;
+        }
+
         #region Remove 移除
 
         /// <summary>

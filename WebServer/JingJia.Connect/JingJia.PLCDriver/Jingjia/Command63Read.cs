@@ -1,5 +1,6 @@
 ﻿using Jingjia.PLCModel;
 using Jingjia.PLCModel.Result63Read;
+using JingJia.PLCCache;
 using JingJia.PLCComm;
 using Newtonsoft.Json;
 using System;
@@ -50,41 +51,49 @@ namespace JingJia.PLCDriver.Jingjia
             if (enumDeviceType == EnumDeviceType.电表)
             {
                 Result63ReadAmmeter res = new Result63ReadAmmeter(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.水表)
             {
                 Result63ReadWatermeter res = new Result63ReadWatermeter(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.阀门)
             {
                 Result63ReadValve res = new Result63ReadValve(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.温度)
             {
                 Result63ReadTemperature res = new Result63ReadTemperature(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.湿度)
             {
                 Result63ReadHumidity res = new Result63ReadHumidity(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.灯控)
             {
                 Result63ReadLight res = new Result63ReadLight(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.光感度)
             {
                 Result63ReadOptical res = new Result63ReadOptical(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
             else if (enumDeviceType == EnumDeviceType.水浸)
             {
                 Result63ReadWater res = new Result63ReadWater(DeviceNum, data);
+                PLCDeviceCacheObject.Instance[res.Num.ToString()] = res;
                 str = JsonConvert.SerializeObject(res);
             }
 

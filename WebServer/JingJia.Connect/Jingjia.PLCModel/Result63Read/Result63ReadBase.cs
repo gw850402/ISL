@@ -18,7 +18,13 @@ namespace Jingjia.PLCModel
             MetSts = data[3];
             Metbase = new byte[] { data[4], data[5], data[6] };
             Num = deviceNum;
+            date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff");
         }
+
+        /// <summary>
+        /// 数据时间
+        /// </summary>
+        public string date { get; set; }
 
         /// <summary>
         /// 数值单位

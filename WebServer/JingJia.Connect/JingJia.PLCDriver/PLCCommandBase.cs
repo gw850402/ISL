@@ -58,7 +58,6 @@ namespace JingJia.PLCDriver
         public byte[] SendDataByte { get; set; }
 
 
-
         /// <summary>
         /// 
         /// </summary>

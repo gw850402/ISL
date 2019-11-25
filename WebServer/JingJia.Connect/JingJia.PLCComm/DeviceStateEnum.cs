@@ -36,6 +36,7 @@ namespace JingJia.PLCComm
         断电Or关三分之二 = 3,
         告警Or全关 = 4,
         关告警Or关三分之一 = 5,
+        获取所有设备缓存 = 10
 
     }
 
