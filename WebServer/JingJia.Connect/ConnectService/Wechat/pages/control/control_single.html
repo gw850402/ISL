@@ -93,19 +93,21 @@
 					httpDeviceControl: function(deviceNum, onOff) {
 						var url = "";
 						if (onOff) {
-							url = BASEURL + "SetOn.ashx?id=" + deviceNum;
+							// url = BASEURL + "SetOn.ashx?id=" + deviceNum;
+							url = SendCommand + "id=" + deviceNum + "&cmd=2&type=1";
 						} else {
-							url = BASEURL + "SetOff.ashx?id=" + deviceNum;
+							// url = BASEURL + "SetOff.ashx?id=" + deviceNum;
+							url = SendCommand + "id=" + deviceNum + "&cmd=3&type=1";
 						}
 						mui.toast("指令已发送.");
 						axios.get(url)
 							.then(function(response) {
 								console.log(response);
-								console.log("response.state:"+ response.data.state);
-								if(response.data.state == 1){
+								console.log("response.state:" + response.data.state);
+								if (response.data.state == 1) {
 									device.onOff = true;
-									
-								}else{
+
+								} else {
 									device.onOff = false;
 								}
 								console.log(device.onOff);

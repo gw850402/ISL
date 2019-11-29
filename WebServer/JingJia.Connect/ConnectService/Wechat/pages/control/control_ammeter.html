@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -61,8 +61,8 @@
 				</ul>`,
 				methods: {
 					refreshValue: function(e) {
-						var url = SendCommand + "id="+ e.num+"&type=1";
-						mui.toast("指令已发送.");
+						var url = SendCommand + "id="+ e.num+"&cmd=1&type=1";
+						// mui.toast("指令已发送.");
 						axios.get(url)
 							.then(function(response) {
 								var res = response.data;
@@ -91,20 +91,22 @@
 					httpDeviceControl: function(deviceNum, onOff) {
 						var url = "";
 						if (onOff) {
-							url = BASEURL + "SetOn.ashx?id=" + deviceNum;
+							// url = BASEURL + "SetOn.ashx?id=" + deviceNum;
+							url = SendCommand + "id="+ deviceNum+"&cmd=2&type=1";
 						} else {
-							url = BASEURL + "SetOff.ashx?id=" + deviceNum;
+							// url = BASEURL + "SetOff.ashx?id=" + deviceNum;
+								url = SendCommand + "id="+ deviceNum+"&cmd=3&type=1";
 						}
-						mui.toast("指令已发送.");
+						// mui.toast("指令已发送.");
 						axios.get(url)
 							.then(function(response) {
 								console.log(response);
-								onOff = response.data.state;
-								mui.toast('电表：' + response.data.device + ' 控制成功。');
+								if(response.data.code == 0)
+								mui.toast('电表：' + response.data.data.Num + ' '+response.data.data.onOff);
 							})
 							.catch(function(error) {
 								console.log(error);
-								mui.toast('电表：' + response.data.device + ' 控制失败。');
+								mui.toast('电表：' + response.data.Num + ' 控制失败。');
 							});
 					}
 				},

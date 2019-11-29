@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -48,35 +48,22 @@
 			mui.init()
 			var com_device = Vue.component('com-immersion-detection', {
 				props: ['device'],
-				data: function() {
-					return {
-						classMuiActive: {
-							'mui-active': this.device.onOff
-						}
-					}
-				},
 				template: `
 				<li class="mui-table-view-cell ">
 					<div class="mui-checkbox">
 					  <label>{{device.name}}<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span></label>
-					  <input name="checkbox1" value="Item 1" type="checkbox" checked>
 					</div>
 				</li>
 				`,
 				methods: {
 					refreshValue: function(e) {
-						console.log(e);
-						var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
-						mui.toast("指令已发送.");
+						// console.log(e);
+						// var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
+						var url = SendCommand + "id="+ e.num+"&cmd=1&type=128";
 						axios.get(url)
 							.then(function(response) {
 								console.log(response);
-								e.value = response.data.state;
-								if (response.data.msg == "失败") {
-									mui.toast('水浸检测器' + e.num + ' 读数失败');
-								} else if (response.data.msg == "成功") {
-									mui.toast('水浸检测器：' + e.num + ' 抄读成功：' + e.value);
-								}
+								mui.toast('水浸检测器' + e.num + ' '+response.data.data.onOff );
 							})
 							.catch(function(error) {
 								console.log(error);

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -37,6 +37,8 @@
 		<script src="../../js/api.js"></script>
 		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/vue.min.js"></script>
+		
+		..............
 		<script type="text/javascript">
 			mui.init()
 			var com_device = Vue.component('com-water-ammeter', {
@@ -60,17 +62,20 @@
 				methods: {
 					refreshValue: function(e) {
 						console.log(e);
-						var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
-						mui.toast("指令已发送.");
+						// var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
+						var url = SendCommand + "id="+ e.num+"&cmd=1&type=2";
+						// mui.toast("指令已发送.");
 						axios.get(url)
 							.then(function(response) {
 								console.log(response);
-								e.value = response.data.state;
-								if (response.data.msg == "失败") {
-									mui.toast('水表' + e.num + ' 抄表失败');
-								} else if (response.data.msg == "成功") {
-									mui.toast('水表：' + e.num + ' 抄读成功：' + e.value);
-								}
+								e.value = response.data.data.Value;
+								mui.toast('水表：' + e.num + ' 抄读成功：' + response.data.data.Value);
+								
+								// if (response.data.msg == "失败") {
+								// 	mui.toast('水表' + e.num + ' 抄表失败');
+								// } else if (response.data.msg == "成功") {
+								// 	mui.toast('水表：' + e.num + ' 抄读成功：' + e.value);
+								// }
 							})
 							.catch(function(error) {
 								console.log(error);

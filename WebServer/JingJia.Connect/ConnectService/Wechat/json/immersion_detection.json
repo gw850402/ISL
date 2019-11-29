@@ -6,23 +6,5 @@
 		"status": "在线", 
 		"onOff": true ,
 		"value":"00.00"
-	},
-	{
-		"num": "102",
-		"name": "I都会/A座2单元/电梯间",
-		"type": "水浸检测",
-		"position": [121.433116, 31.198981],
-		"status": "在线", 
-		"onOff": true ,
-		"value":"00.00"
-	},
-	{
-		"num": "101",
-		"name": "I都会/A座3单元/1楼电箱",
-		"type": "水浸检测",
-		"position": [121.433116, 31.198981],
-		"status": "在线", 
-		"onOff": true ,
-		"value":"00.00"
 	}
 ]
