@@ -178,6 +178,8 @@
     <Content Include="Wechat\json\device_ammeter.json" />
     <Content Include="Wechat\json\device_light.json" />
     <Content Include="Wechat\json\device_water.json" />
+    <Content Include="Wechat\json\tap_control.json" />
+    <Content Include="Wechat\json\water_tap.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JingJia.PLCCache\JingJia.PLCCache.csproj">
