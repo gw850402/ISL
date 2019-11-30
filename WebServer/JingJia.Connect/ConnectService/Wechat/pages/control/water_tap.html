@@ -12,7 +12,7 @@
 		<div id="app" class="mui-content">
 			<header class="mui-bar mui-bar-nav">
 				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<h1 class="mui-title">阀门控制</h1>
+				<h1 class="mui-title">一体水阀</h1>
 			</header>
 			<nav class="mui-bar mui-bar-tab">
 				<a class="mui-tab-item mui-active" v-on:tap="toHome">
@@ -29,59 +29,69 @@
 				</a>
 			</nav>
 			<div class="mui-content">
-				<com-tap-control v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-tap-control>				
-			</div>
+				<ul class="mui-table-view">
+				<com-water-tap v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-water-tap>
+				</ul>
+			</div>			
 		</div>
 		<script src="../../js/mui.js"></script>
 		<script src="../../js/api.js"></script>
 		<script src="../../js/mui.picker.js"></script>
 		<script src="../../js/mui.poppicker.js"></script>
 		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="../../js/vue.min.js"></script>
 		<script type="text/javascript">
-			mui.init();			
-			var com_tap_control = Vue.component('com-tap-control', {
+			mui.init()
+			var com_water_tap = Vue.component('com-water-tap', {
 				props: ['device'],
-				data: function() {
-					return {
-						classMuiActive: {
-							'mui-active': this.device.onOff
-						}
-					}
-				},
 				template: `
-				<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell ">
 					<div>
-					{{device.name}}
+						<label>{{device.name}}<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span></label>	
+						<span class="mui-badge mui-badge-primary">{{device.value}}立方</span>
 					</div>
 					<button type="button" class="mui-btn mui-btn-primary" ref="btnControl" v-on:tap="changeStatus(device)">{{device.status}}</button>
 				</li>
-				</ul>`,
+				`,
 				methods: {
-					changeStatus: function(e) {
+					refreshValue: function(e) {
+						// console.log(e);
+						// var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
+						var url = SendCommand + "id="+ e.num+"&cmd=1&type=256";
+						axios.get(url)
+							.then(function(response) {
+								console.log(response);
+								e.value = response.data.data.Value;
+								mui.toast('一体水阀' + e.num + ' '+response.data.data.onOff );
+							})
+							.catch(function(error) {
+								console.log(error);
+								mui.toast('一体水阀：' + e.num + ' 抄读失败。');
+							});
+					},
+					changeStatus: function(e) {	
 						var picker = new mui.PopPicker(); 
 						picker.setData([{value:'2',text:'全开'},{value:'5',text:'关1/3'},{value:'3',text:'关2/3'},{value:'4',text:'全关'}]); 
 						picker.show(function (selectItems) {							
 						    console.log(selectItems[0].text);
-						    console.log(selectItems[0].value);							
+						    console.log(selectItems[0].value);
 							
-							var url = SendCommand + "id="+ e.num+"&cmd=selectItems[0].value&type=4";
+							var url = SendCommand + "id="+ e.num+"&cmd=selectItems[0].value&type=256";
 							axios.get(url)
 								.then(function(response) {
 									console.log(response);
 									e.status = selectItems[0].text;
-									mui.toast('阀门：' + e.num + ' 控制：' + response.data.data.Value);
+									mui.toast('一体水阀：' + e.num + ' 控制：' + response.data.data.Value);
 								})
 								.catch(function(error) {
 									console.log(error);
-									mui.toast('阀门：' + e.num + ' 控制失败。');
+									mui.toast('一体水阀：' + e.num + ' 控制失败。');
 								});
 						});
 					}
 				}
 			});
-	
+		
 			var app = new Vue({
 				el: '#app',
 				data: {
@@ -89,8 +99,8 @@
 					timevalue: "123123"
 				},
 				created: function() {
-	
-					mui.getJSON("../../json/tap_control.json", function(res) {
+		
+					mui.getJSON("../../json/water_tap.json", function(res) {
 						app.devices = res;
 					});
 					//开始执行
@@ -109,7 +119,7 @@
 							})
 							.catch(function(error) {
 								console.log(error);
-	
+		
 								app.myEvent();
 							});
 					},
