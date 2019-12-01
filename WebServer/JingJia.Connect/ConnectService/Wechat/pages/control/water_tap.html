@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -76,7 +76,7 @@
 						    console.log(selectItems[0].text);
 						    console.log(selectItems[0].value);
 							
-							var url = SendCommand + "id="+ e.num+"&cmd=selectItems[0].value&type=256";
+							var url = SendCommand + "id="+ e.num+"&cmd="+selectItems[0].value+"&type=256";
 							axios.get(url)
 								.then(function(response) {
 									console.log(response);

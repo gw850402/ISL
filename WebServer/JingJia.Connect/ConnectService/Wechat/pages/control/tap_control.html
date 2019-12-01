@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -64,16 +64,18 @@
 						picker.setData([{value:'2',text:'全开'},{value:'5',text:'关1/3'},{value:'3',text:'关2/3'},{value:'4',text:'全关'}]); 
 						picker.show(function (selectItems) {							
 						    console.log(selectItems[0].text);
-						    console.log(selectItems[0].value);							
-							
-							var url = SendCommand + "id="+ e.num+"&cmd=selectItems[0].value&type=4";
+                            console.log(selectItems[0].value);
+                            debugger;
+							var url = SendCommand + "id="+ e.num+"&cmd="+selectItems[0].value+"&type=4";
 							axios.get(url)
-								.then(function(response) {
+                                .then(function (response) {
+                                    debugger;
 									console.log(response);
 									e.status = selectItems[0].text;
 									mui.toast('阀门：' + e.num + ' 控制：' + response.data.data.Value);
 								})
-								.catch(function(error) {
+                                .catch(function (error) {
+                                    debugger;
 									console.log(error);
 									mui.toast('阀门：' + e.num + ' 控制失败。');
 								});

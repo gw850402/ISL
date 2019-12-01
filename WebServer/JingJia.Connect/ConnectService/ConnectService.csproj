@@ -107,11 +107,13 @@
     <Content Include="Wechat\js\webviewGroup.js" />
     <Content Include="Wechat\libs\echarts-all.js" />
     <Content Include="Wechat\pages\control\immersion_detection.html" />
+    <Content Include="Wechat\pages\control\tap_control.html" />
     <Content Include="Wechat\pages\control\water_ammeter.html" />
     <Content Include="Wechat\pages\control\control_ammeter.html" />
     <Content Include="Wechat\pages\control\control_group.html" />
     <Content Include="Wechat\pages\control\control_single.html" />
     <Content Include="Wechat\pages\control\new_file.html" />
+    <Content Include="Wechat\pages\control\water_tap.html" />
     <Content Include="Wechat\pages\energy\energy_home.html" />
     <Content Include="Wechat\pages\gis\gis_home.html" />
     <Content Include="Wechat\pages\groupManage\group_manage.html" />
@@ -135,9 +137,6 @@
       <DependentUpon>MessageRegister.ashx</DependentUpon>
     </Compile>
     <Compile Include="bll\MessageServer.cs" />
-    <Compile Include="plc\COMHandler.ashx.cs">
-      <DependentUpon>COMHandler.ashx</DependentUpon>
-    </Compile>
     <Compile Include="plc\GetElectricity.ashx.cs">
       <DependentUpon>GetElectricity.ashx</DependentUpon>
     </Compile>
@@ -164,7 +163,6 @@
     <Content Include="plc\GetWaterAlarm.ashx" />
     <Content Include="plc\SendCommand.ashx" />
     <None Include="packages.config" />
-    <Content Include="plc\COMHandler.ashx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
