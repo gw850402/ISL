@@ -15,8 +15,12 @@ namespace Jingjia.PLCModel
     {
         public Result63ReadBase(int deviceNum, byte[] data)
         {
-            MetSts = data[3];
-            if (data[1] > 7) {
+            if (data.Length > 4)
+            {
+                MetSts = data[3];
+            }
+            if (data.Length > 7)
+            {
                 Metbase = new byte[] { data[4], data[5], data[6] };
             }
             Num = deviceNum;

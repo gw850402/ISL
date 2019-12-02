@@ -81,7 +81,7 @@
 								.then(function(response) {
 									console.log(response);
 									e.status = selectItems[0].text;
-									mui.toast('一体水阀：' + e.num + ' 控制：' + response.data.data.Value);
+									mui.toast('一体水阀：' + e.num + ' 控制：' + response.data.data.onOff);
 								})
 								.catch(function(error) {
 									console.log(error);

@@ -42,6 +42,7 @@ namespace ConnectService.plc
             EnumDeviceType enumDeviceType = (EnumDeviceType)Enum.ToObject(typeof(EnumDeviceType), deviceType);
 
             context.Response.ContentType = "text/plain";
+
             string data = JingJia.PLCDriver.CommandQueueDriver.ExecuteCommand(deviceNum, enumHandleType, enumDeviceType);
            
             context.Response.Write(Common.ResultJsonStringNew(deviceNum, "ok", data));

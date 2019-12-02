@@ -16,7 +16,7 @@ namespace Jingjia.PLCModel.Result63Read
         public Result63ReadWater(int deviceNum, byte[] data)
                     : base(deviceNum, data)
         {
-            if (MetStsArray[0] == 1)
+            if (data[4] == 0x64)
             {
                 onOff = "有水";
             }

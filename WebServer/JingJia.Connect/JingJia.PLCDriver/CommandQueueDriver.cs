@@ -34,7 +34,8 @@ namespace JingJia.PLCDriver
         /// <returns>返回执行结果</returns>
         public static string ExecuteCommand(int num, EnumHandleType handleType, EnumDeviceType enumDeviceType)
         {
-            if (handleType == EnumHandleType.获取所有设备缓存) {
+            if (handleType == EnumHandleType.获取所有设备缓存)
+            {
 
                 _pLCDeviceCache = PLCDeviceCacheObject.Instance;
                 Dictionary<string, object> _dataDic = _pLCDeviceCache.GetAll();
@@ -51,7 +52,7 @@ namespace JingJia.PLCDriver
 
                 return str;
             }
-           
+
 
             GR10 gr10 = DriveFactory.GetPLCInstence();
 
@@ -66,9 +67,17 @@ namespace JingJia.PLCDriver
 
             //发送命令 返回结果
             byte[] resData = gr10.SendData(sendData);
+            string json = "";
 
+            if (resData.Length > 4)
+            {
+                json = pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
+            }
+            else
+            {
+                json = "集中器返回数据异常";
+            }
 
-            string json = pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
             //_pLCDeviceCache = PLCDeviceCacheObject.Instance;
             //_pLCDeviceCache[num.ToString()] = json;
             //转化返回结果

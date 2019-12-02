@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -94,10 +94,10 @@
 						var url = "";
 						if (onOff) {
 							// url = BASEURL + "SetOn.ashx?id=" + deviceNum;
-							url = SendCommand + "id=" + deviceNum + "&cmd=2&type=1";
+							url = SendCommand + "id=" + deviceNum + "&cmd=2&type=8";
 						} else {
 							// url = BASEURL + "SetOff.ashx?id=" + deviceNum;
-							url = SendCommand + "id=" + deviceNum + "&cmd=3&type=1";
+							url = SendCommand + "id=" + deviceNum + "&cmd=3&type=8";
 						}
 						mui.toast("指令已发送.");
 						axios.get(url)

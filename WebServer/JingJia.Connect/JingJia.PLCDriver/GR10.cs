@@ -80,25 +80,29 @@ namespace JingJia.PLCDriver
                     if (!_port.IsOpen)
                         _port.Open();
                 }
-
-
-                _port.DataReceived += _port_DataReceived1;
-
+                buf = new byte[0];
+                nex = false;
                 _port.Write(sendData, 0, sendData.Length);
+                _port.DataReceived += _port_DataReceived;
                 //System.Threading.Thread.Sleep(2000);
                 //_port.Read(resData, 0, 128);
                 //_port.Close();
 
 
-            }
+                int aa =300;
+                while (nex == false)
+                {
+                    aa--;
+                    System.Threading.Thread.Sleep(10);
+                    if (aa == 0)
+                    {
+                        break;
+                    }
+                }
 
-            while (nex == false)
-            {
-                System.Threading.Thread.Sleep(100);
+                //nex = false;
+                return buf;
             }
-
-            nex = false;
-            return ReceiveBytes;
         }
 
         private StringBuilder builder = new StringBuilder();//避免在事件处理方法中反复的创建，定义到外面。
@@ -112,13 +116,14 @@ namespace JingJia.PLCDriver
         private void _port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             n = _port.BytesToRead;//先记录下来，避免某种原因，人为的原因，操作几次之间时间长，缓存不一致
-            if (n < 7) return;
+            if (n < 5) {
+                return;
+            }
             buf = new byte[n];//声明一个临时数组存储当前来的串口数据
-            received_count += n;//增加接收计数
+            //received_count += n;//增加接收计数
             _port.Read(buf, 0, n);//读取缓冲数据
             builder.Clear();//清除字符串构造器的内容
             nex = true;
-
 
         }
 
@@ -150,8 +155,9 @@ namespace JingJia.PLCDriver
                     ReceiveBytes = new byte[len + 1];
                     buffer.CopyTo(0, ReceiveBytes, 0, len + 1);
                     //buffer.RemoveRange(0, len + 1);
-                    buffer = new List<byte>();
                     nex = true;
+                    buffer = new List<byte>();
+                    break;
                 }
                 else
                 {
