@@ -2,6 +2,7 @@
 using JingJia.PLCCache;
 using JingJia.PLCComm;
 using System;
+using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
 
@@ -49,6 +50,11 @@ namespace JingJia.PLCDriver
             }
         }
 
+
+        /// <summary>
+        /// 串口缓存
+        /// </summary>
+        private List<byte> buffer = new List<byte>(4096);
 
 
         /// <summary>
