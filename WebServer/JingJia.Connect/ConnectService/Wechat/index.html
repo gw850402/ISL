@@ -44,7 +44,7 @@ index
 						<span class="mui-icon mui-icon mui-icon-paperplane"></span>
 						<span class="mui-tab-label">导航</span>
 					</a>
-					<a class="mui-tab-item" v-on:tap="toHome">
+					<a class="mui-tab-item" v-on:tap="toSystem">
 						<span class="mui-icon mui-icon-gear"></span>
 						<span class="mui-tab-label">系统</span>
 					</a>
@@ -207,6 +207,9 @@ index
 					},
 					toHome: function() {
 						mui.openWindow('index.html');
+					},
+					toSystem:function(){
+						mui.openWindow('pages/system/com.html');
 					}
 				}
 			});
