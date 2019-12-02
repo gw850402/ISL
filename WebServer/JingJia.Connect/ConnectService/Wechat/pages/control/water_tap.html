@@ -57,7 +57,7 @@
 					refreshValue: function(e) {
 						// console.log(e);
 						// var url = BASEURL + "GetElectricity.ashx?id=" + e.num;
-						var url = SendCommand + "id="+ e.num+"&cmd=1&type=256";
+						var url = SendCommand + "id="+ e.num+"&cmd=1&type=4";
 						axios.get(url)
 							.then(function(response) {
 								console.log(response);
@@ -76,7 +76,7 @@
 						    console.log(selectItems[0].text);
 						    console.log(selectItems[0].value);
 							
-							var url = SendCommand + "id="+ e.num+"&cmd="+selectItems[0].value+"&type=256";
+							var url = SendCommand + "id="+ e.num+"&cmd="+selectItems[0].value+"&type=4";
 							axios.get(url)
 								.then(function(response) {
 									console.log(response);

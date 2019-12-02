@@ -123,6 +123,7 @@
     <Content Include="Wechat\pages\scheduleSet\schedule_set.html" />
     <Content Include="Wechat\pages\scheduleSet\schedule_set_detail.html" />
     <Content Include="Wechat\pages\scheduleSet\schedule_set_obj.html" />
+    <Content Include="Wechat\pages\system\com.html" />
     <Content Include="Wechat\test.html" />
   </ItemGroup>
   <ItemGroup>

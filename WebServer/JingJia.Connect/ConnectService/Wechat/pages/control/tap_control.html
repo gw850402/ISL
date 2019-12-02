@@ -65,17 +65,14 @@
 						picker.show(function (selectItems) {							
 						    console.log(selectItems[0].text);
                             console.log(selectItems[0].value);
-                            debugger;
 							var url = SendCommand + "id="+ e.num+"&cmd="+selectItems[0].value+"&type=4";
 							axios.get(url)
                                 .then(function (response) {
-                                    debugger;
 									console.log(response);
 									e.status = selectItems[0].text;
-									mui.toast('阀门：' + e.num + ' 控制：' + response.data.data.Value);
+									mui.toast('阀门：' + e.num + ' 控制：' + response.data.data.onOff);
 								})
                                 .catch(function (error) {
-                                    debugger;
 									console.log(error);
 									mui.toast('阀门：' + e.num + ' 控制失败。');
 								});

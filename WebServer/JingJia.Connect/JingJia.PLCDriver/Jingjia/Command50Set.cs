@@ -101,6 +101,35 @@ namespace JingJia.PLCDriver.Jingjia
                 Result63ReadLight res = new Result63ReadLight(DeviceNum, data);
                 str = JsonConvert.SerializeObject(res);
             }
+            else if (enumDeviceType == EnumDeviceType.水表)
+            {
+
+                Result63ReadWatermeter res = new Result63ReadWatermeter(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.温度)
+            {
+                Result63ReadTemperature res = new Result63ReadTemperature(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.湿度)
+            {
+                Result63ReadHumidity res = new Result63ReadHumidity(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.光感度)
+            {
+                Result63ReadOptical res = new Result63ReadOptical(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+            else if (enumDeviceType == EnumDeviceType.水浸)
+            {
+                Result63ReadWatermeter res = new Result63ReadWatermeter(DeviceNum, data);
+                str = JsonConvert.SerializeObject(res);
+            }
+
+
+
             return str;
         }
 

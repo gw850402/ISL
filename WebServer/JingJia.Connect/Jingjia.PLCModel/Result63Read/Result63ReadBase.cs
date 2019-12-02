@@ -16,7 +16,9 @@ namespace Jingjia.PLCModel
         public Result63ReadBase(int deviceNum, byte[] data)
         {
             MetSts = data[3];
-            Metbase = new byte[] { data[4], data[5], data[6] };
+            if (data[1] > 7) {
+                Metbase = new byte[] { data[4], data[5], data[6] };
+            }
             Num = deviceNum;
             date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff");
         }
@@ -69,8 +71,12 @@ namespace Jingjia.PLCModel
             }
             get
             {
-                double vaule = (Metbase[0] + Metbase[1] * 256 + Metbase[2] * 256 * 256) / 100F;
-                return vaule + Unit;
+                double vaule = 0;
+                if (Metbase != null)
+                {
+                    vaule = (Metbase[0] + Metbase[1] * 256 + Metbase[2] * 256 * 256) / 100F;
+                }
+                return vaule.ToString("F2") + Unit;
             }
         }
 

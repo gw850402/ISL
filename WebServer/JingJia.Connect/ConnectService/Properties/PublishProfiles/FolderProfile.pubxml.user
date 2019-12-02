@@ -10,16 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/29/2019 21:04:32</publishTime>
+      <publishTime>12/02/2019 20:54:05</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/29/2019 21:04:32</publishTime>
+      <publishTime>12/02/2019 20:54:05</publishTime>
     </File>
     <File Include="bin/ConnectService.dll">
-      <publishTime>11/29/2019 21:02:14</publishTime>
+      <publishTime>12/02/2019 20:54:04</publishTime>
     </File>
     <File Include="bin/ConnectService.pdb">
-      <publishTime>11/29/2019 21:02:14</publishTime>
+      <publishTime>12/02/2019 20:54:04</publishTime>
     </File>
     <File Include="bin/JingJia.PLCCache.dll">
       <publishTime>11/29/2019 20:55:12</publishTime>
@@ -34,16 +34,16 @@
       <publishTime>11/29/2019 20:55:12</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.dll">
-      <publishTime>11/29/2019 20:55:13</publishTime>
+      <publishTime>12/02/2019 20:54:03</publishTime>
     </File>
     <File Include="bin/JingJia.PLCDriver.pdb">
-      <publishTime>11/29/2019 20:55:13</publishTime>
+      <publishTime>12/02/2019 20:54:03</publishTime>
     </File>
     <File Include="bin/Jingjia.PLCModel.dll">
-      <publishTime>11/29/2019 20:55:13</publishTime>
+      <publishTime>12/02/2019 20:54:03</publishTime>
     </File>
     <File Include="bin/Jingjia.PLCModel.pdb">
-      <publishTime>11/29/2019 20:55:13</publishTime>
+      <publishTime>12/02/2019 20:54:03</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/09/2019 00:56:46</publishTime>
@@ -73,7 +73,7 @@
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/29/2019 21:04:32</publishTime>
+      <publishTime>12/02/2019 20:54:04</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>11/29/2019 20:55:13</publishTime>
@@ -127,13 +127,13 @@
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="Wechat/index.html">
-      <publishTime>11/23/2019 11:30:29</publishTime>
+      <publishTime>12/02/2019 16:51:00</publishTime>
     </File>
     <File Include="Wechat/js/95516.js">
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="Wechat/js/api.js">
-      <publishTime>11/29/2019 21:04:24</publishTime>
+      <publishTime>12/02/2019 16:18:33</publishTime>
     </File>
     <File Include="Wechat/js/arttmpl.js">
       <publishTime>11/17/2019 10:49:00</publishTime>
@@ -231,8 +231,14 @@
     <File Include="Wechat/json/immersion_detection.json">
       <publishTime>11/25/2019 23:28:05</publishTime>
     </File>
+    <File Include="Wechat/json/tap_control.json">
+      <publishTime>11/30/2019 20:31:11</publishTime>
+    </File>
     <File Include="Wechat/json/water_ammeter.json">
       <publishTime>11/18/2019 20:29:36</publishTime>
+    </File>
+    <File Include="Wechat/json/water_tap.json">
+      <publishTime>11/30/2019 20:31:11</publishTime>
     </File>
     <File Include="Wechat/libs/echarts-all.js">
       <publishTime>11/17/2019 10:49:00</publishTime>
@@ -247,7 +253,7 @@
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
     <File Include="Wechat/pages/control/control_single.html">
-      <publishTime>11/25/2019 23:28:54</publishTime>
+      <publishTime>12/02/2019 16:22:13</publishTime>
     </File>
     <File Include="Wechat/pages/control/immersion_detection.html">
       <publishTime>11/25/2019 23:38:16</publishTime>
@@ -255,8 +261,14 @@
     <File Include="Wechat/pages/control/new_file.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
     </File>
+    <File Include="Wechat/pages/control/tap_control.html">
+      <publishTime>12/01/2019 22:02:29</publishTime>
+    </File>
     <File Include="Wechat/pages/control/water_ammeter.html">
-      <publishTime>11/27/2019 20:06:04</publishTime>
+      <publishTime>12/02/2019 20:48:56</publishTime>
+    </File>
+    <File Include="Wechat/pages/control/water_tap.html">
+      <publishTime>12/01/2019 22:02:29</publishTime>
     </File>
     <File Include="Wechat/pages/energy/energy_home.html">
       <publishTime>11/17/2019 10:49:00</publishTime>
@@ -284,6 +296,9 @@
     </File>
     <File Include="Wechat/pages/scheduleSet/schedule_set_obj.html">
       <publishTime>11/17/2019 11:42:55</publishTime>
+    </File>
+    <File Include="Wechat/pages/system/com.html">
+      <publishTime>12/02/2019 16:49:11</publishTime>
     </File>
     <File Include="Wechat/test.html">
       <publishTime>11/17/2019 10:49:00</publishTime>

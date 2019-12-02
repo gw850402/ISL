@@ -82,7 +82,7 @@ namespace JingJia.PLCDriver
                 }
 
 
-                _port.DataReceived += _port_DataReceived;
+                _port.DataReceived += _port_DataReceived1;
 
                 _port.Write(sendData, 0, sendData.Length);
                 //System.Threading.Thread.Sleep(2000);
@@ -97,7 +97,8 @@ namespace JingJia.PLCDriver
                 System.Threading.Thread.Sleep(100);
             }
 
-            return buf;
+            nex = false;
+            return ReceiveBytes;
         }
 
         private StringBuilder builder = new StringBuilder();//避免在事件处理方法中反复的创建，定义到外面。
@@ -106,6 +107,7 @@ namespace JingJia.PLCDriver
         int n = 0;
         byte[] buf;
         bool nex = false;
+        byte[] ReceiveBytes;
 
         private void _port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -124,8 +126,8 @@ namespace JingJia.PLCDriver
 
         private void _port_DataReceived1(object sender, SerialDataReceivedEventArgs e)
         {
-            int n = _port.BytesToRead; 
-            byte[] buf = new byte[n]; 
+            int n = _port.BytesToRead;
+            byte[] buf = new byte[n];
             _port.Read(buf, 0, n);
 
             //1.缓存数据
@@ -136,12 +138,27 @@ namespace JingJia.PLCDriver
             //2.完整性判断
             while (buffer.Count > 6)
             {
-                
-                
+                //找到帧头
+                if (buffer[0] == 0x54)
+                {
+                    int len = buffer[1];
 
-                buffer.RemoveAt(0);
-            
+                    if (buffer.Count < len + 1)
+                    {
+                        break;
+                    }
+                    ReceiveBytes = new byte[len + 1];
+                    buffer.CopyTo(0, ReceiveBytes, 0, len + 1);
+                    //buffer.RemoveRange(0, len + 1);
+                    buffer = new List<byte>();
+                    nex = true;
+                }
+                else
+                {
+                    buffer.RemoveAt(0);
+                }
             }
+
         }
 
 
