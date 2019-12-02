@@ -116,6 +116,32 @@ namespace JingJia.PLCDriver
             _port.Read(buf, 0, n);//读取缓冲数据
             builder.Clear();//清除字符串构造器的内容
             nex = true;
+
+
+        }
+
+
+
+        private void _port_DataReceived1(object sender, SerialDataReceivedEventArgs e)
+        {
+            int n = _port.BytesToRead; 
+            byte[] buf = new byte[n]; 
+            _port.Read(buf, 0, n);
+
+            //1.缓存数据
+            buffer.AddRange(buf);
+
+
+
+            //2.完整性判断
+            while (buffer.Count > 6)
+            {
+                
+                
+
+                buffer.RemoveAt(0);
+            
+            }
         }
 
 
