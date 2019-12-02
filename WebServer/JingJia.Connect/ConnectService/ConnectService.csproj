@@ -137,6 +137,9 @@
       <DependentUpon>MessageRegister.ashx</DependentUpon>
     </Compile>
     <Compile Include="bll\MessageServer.cs" />
+    <Compile Include="plc\COMHandler.ashx.cs">
+      <DependentUpon>COMHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="plc\GetElectricity.ashx.cs">
       <DependentUpon>GetElectricity.ashx</DependentUpon>
     </Compile>
@@ -163,6 +166,7 @@
     <Content Include="plc\GetWaterAlarm.ashx" />
     <Content Include="plc\SendCommand.ashx" />
     <None Include="packages.config" />
+    <Content Include="plc\COMHandler.ashx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
