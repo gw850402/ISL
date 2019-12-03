@@ -154,8 +154,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="plc\SetOff.ashx" />
-    <Content Include="plc\SetOn.ashx" />
     <Content Include="MessageRegister.ashx" />
     <Content Include="plc\SendCommand.ashx" />
     <None Include="packages.config" />

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
-using System.Text;
 using System.Threading;
 
 namespace JingJia.PLCDriver
@@ -53,7 +52,7 @@ namespace JingJia.PLCDriver
         /// 发送串口字节数据 同步方法 zhw
         /// </summary>
         /// <param name="sendData">发送的数据</param>
-        /// <returns>返回命令结果 buf[0] == 0xFE 为超时</returns>
+        /// <returns>返回命令结果 buf == null 为超时</returns>
         public byte[] SendData(byte[] sendData)
         {
             try
@@ -65,7 +64,7 @@ namespace JingJia.PLCDriver
                     buffer.Clear();//清空缓冲区
                     int clock = 300;//初始化时钟 
                     _port.Write(sendData, 0, sendData.Length);//写入数据
-                    _port.DataReceived += _port_DataReceived1;//订阅串口数据
+                    _port.DataReceived += _port_DataReceived;//订阅串口数据
 
                     for (int i = clock; i > 0; i--)
                     {
@@ -89,9 +88,7 @@ namespace JingJia.PLCDriver
         /// <summary>
         /// 串口数据订阅函数
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void _port_DataReceived1(object sender, SerialDataReceivedEventArgs e)
+        private void _port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             int n = _port.BytesToRead;
             byte[] buf = new byte[n];
@@ -102,7 +99,6 @@ namespace JingJia.PLCDriver
         /// <summary>
         /// 校验数据包
         /// </summary>
-        /// <returns></returns>
         private byte[] CheckBuffer(List<byte> buffer) {
 
             if (buffer.Count < 5) {
@@ -133,28 +129,5 @@ namespace JingJia.PLCDriver
 
         }
 
-
-        private byte Add(byte[] data, int start, int length)
-        {
-            int temp = 0;
-
-            for (int i = start; i < length; i++)
-            {
-                temp += data[i];
-                if (temp >= 256)
-                    temp = temp % 256;
-            }
-            return (byte)temp;
-        }
-        private byte Crc(byte[] data, int start, int length)
-        {
-            byte CheckCode = 0;
-
-            for (int i = start; i < length; i++)
-            {
-                CheckCode ^= data[i];
-            }
-            return CheckCode;
-        }
     }
 }
