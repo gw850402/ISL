@@ -65,22 +65,28 @@ namespace JingJia.PLCDriver
             //获取命令码
             byte[] sendData = pLCCommandBase.BuildCommandByte(num);
 
-            //发送命令 返回结果
-            byte[] resData = gr10.SendData(sendData);
-            string json = "";
+            byte[] resData;
 
-            if (resData.Length > 4)
-            {
-                json = pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
-            }
-            else
-            {
-                json = "集中器返回数据异常";
-            }
+            string json;
 
-            //_pLCDeviceCache = PLCDeviceCacheObject.Instance;
-            //_pLCDeviceCache[num.ToString()] = json;
-            //转化返回结果
+            try
+            {
+                resData = gr10.SendData(sendData);
+
+                if (resData == null)
+                {
+                    json = "返回数据超时";
+                }
+                else
+                {
+                    json = pLCCommandBase.BuildResultDataJson(resData, enumDeviceType);
+                }
+            }
+            catch (Exception ex)
+            {
+                json = ex.Message;
+            }
+         
             return json;
         }
 

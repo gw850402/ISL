@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 	<head>
@@ -17,73 +17,78 @@
 		</style>
 
 	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">监控地图</h1>
-		</header>
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">监控地图</h1>
+        </header>
 
-		<div id="app1" class="mui-content">
-			<div id="container" style="width: 100%;height:600px;"></div>
+        <div id="app1" class="mui-content">
+            <div id="container" style="width: 100%;height:600px;"></div>
 
 
-		</div>
-		<script src="../../js/mui.min.js"></script>
-		<script src="../../js/vue.min.js"></script>
-		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=75bfa0aa9931fbd2d6a219990e1eab2c"></script>
-		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
-		<script>
-			var map = new AMap.Map('container', {
-				zoom: 18, //级别
-				center: [121.433116, 31.198981],
-				viewMode: '3D' //使用3D视图
-			});
-			var marker = new AMap.Marker({
-				position: [121.433116, 31.198981]
-			})
+        </div>
+        <script src="../../js/mui.min.js"></script>
+        <script src="../../js/vue.min.js"></script>
+        <script src="../../js/api.js"></script>
+        <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=75bfa0aa9931fbd2d6a219990e1eab2c"></script>
+        <script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            var map = new AMap.Map('container', {
+                zoom: 18, //级别
+                center: [121.433116, 31.198981],
+                viewMode: '3D' //使用3D视图
+            });
+            var marker = new AMap.Marker({
+                position: [121.433116, 31.198981]
+            })
 
-			var infoWindow = new AMap.InfoWindow({ //创建信息窗体
-				isCustom: false, //使用自定义窗体
-				content: `<div id="mySwitch" class="mui-switch"  onclick="asd()"><div class="mui-switch-handle"></div></div>`, //信息窗体的内容可以是任意html片段
-				offset: new AMap.Pixel(0, -30)
-			});
-			var onMarkerClick = function(e) {
-				infoWindow.open(map, e.target.getPosition()); //打开信息窗体
-				//e.target就是被点击的Marker
-			}
+            var infoWindow = new AMap.InfoWindow({ //创建信息窗体
+                isCustom: false, //使用自定义窗体
+                content: `<div id="mySwitch" class="mui-switch"  onclick="asd()"><div class="mui-switch-handle"></div></div>`, //信息窗体的内容可以是任意html片段
+                offset: new AMap.Pixel(0, -30)
+            });
+            var onMarkerClick = function (e) {
+                infoWindow.open(map, e.target.getPosition()); //打开信息窗体
+                //e.target就是被点击的Marker
+            }
 
-			function asd() {
+            function asd() {
 
-				var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
-				if (isActive) {
-					console.log("打开状态");
-					document.getElementById("mySwitch").classList.remove("mui-active");
-					// 为给定 ID 的 user 创建请求
-					axios.get('http://192.168.0.143:8080/plc/SetOff.ashx?id=77')
-					  .then(function (response) {
-					    console.log(response);
-					  })
-					  .catch(function (error) {
-					    console.log(error);
-					  });
-				} else {
-					console.log("关闭状态");
-					document.getElementById("mySwitch").classList.add("mui-active");
-					// 为给定 ID 的 user 创建请求
-						axios.get('http://192.168.0.143:8080/plc/SetOn.ashx?id=77')
-					  .then(function (response) {
-					    console.log(response);
-					  })
-					  .catch(function (error) {
-					    console.log(error);
-					  });
-				}
-			}
+                var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
+                if (isActive) {
+                    console.log("打开状态");
+                    document.getElementById("mySwitch").classList.remove("mui-active");
 
-			map.add(marker);
-			marker.on('click', onMarkerClick); //绑定click事件
-		</script>
-	</body>
+                    var	url = SendCommand + "id=77&cmd=2&type=8";
+
+                    // 为给定 ID 的 user 创建请求
+                    axios.get(url)
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                } else {
+                    console.log("关闭状态");
+                    document.getElementById("mySwitch").classList.add("mui-active");
+                     var	url = SendCommand + "id=77&cmd=3&type=8";
+                    // 为给定 ID 的 user 创建请求
+                    axios.get(url)
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+
+            map.add(marker);
+            marker.on('click', onMarkerClick); //绑定click事件
+        </script>
+    </body>
 
 </html>
 
