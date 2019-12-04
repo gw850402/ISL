@@ -40,7 +40,6 @@ namespace JingJia.PLCDriver
             // _port.Close();
             // 修改串口流保存至缓存 zhw  2019-11-25 20:30:50
             PLCDeviceCacheObject.Instance["com"] = _port;
-
         }
         
         /// <summary>
@@ -127,7 +126,7 @@ namespace JingJia.PLCDriver
                 return null;
             }
 
-        }
+        } 
 
     }
 }
