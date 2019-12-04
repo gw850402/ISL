@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 index
 @version:1.0.0
 @author: zhw 
@@ -90,6 +90,12 @@ index
                                     <div class="mui-media-body">水浸检测</div>
                                 </a>
                             </li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							    <a href="#" v-on:tap="toHumiture">
+							        <span class="mui-icon mui-icon-search"></span>
+							        <div class="mui-media-body">温湿度光感</div>
+							    </a>
+							</li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                                 <a href="#" v-on:tap="toControlGroup">
                                     <span class="mui-icon  mui-icon-settings"></span>
@@ -179,6 +185,9 @@ index
                     toImmersionDetection: function () {
                         mui.openWindow('pages/control/immersion_detection.html');
                     },
+					toHumiture:function(){
+						mui.openWindow('pages/control/humiture.html');
+					},
 					//群组控制
 					toControlGroup: function() {
 						mui.openWindow('pages/control/control_group.html');
