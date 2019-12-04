@@ -141,12 +141,6 @@
     <Compile Include="plc\COMHandler.ashx.cs">
       <DependentUpon>COMHandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="plc\GetElectricity.ashx.cs">
-      <DependentUpon>GetElectricity.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="plc\GetWaterAlarm.ashx.cs">
-      <DependentUpon>GetWaterAlarm.ashx</DependentUpon>
-    </Compile>
     <Compile Include="plc\SendCommand.ashx.cs">
       <DependentUpon>SendCommand.ashx</DependentUpon>
     </Compile>
@@ -160,11 +154,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="plc\SetOff.ashx" />
-    <Content Include="plc\SetOn.ashx" />
-    <Content Include="plc\GetElectricity.ashx" />
     <Content Include="MessageRegister.ashx" />
-    <Content Include="plc\GetWaterAlarm.ashx" />
     <Content Include="plc\SendCommand.ashx" />
     <None Include="packages.config" />
     <Content Include="plc\COMHandler.ashx" />

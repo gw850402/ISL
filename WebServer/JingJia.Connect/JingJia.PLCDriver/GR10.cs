@@ -1,27 +1,27 @@
-﻿using Jingjia.PLCModel;
-using JingJia.PLCCache;
-using JingJia.PLCComm;
+﻿using JingJia.PLCCache;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
-using System.Text;
+using System.Threading;
 
 namespace JingJia.PLCDriver
 {
     /// <summary>
-    /// 京甲GR10集中器通讯协议
+    /// 串口同步驱动
     /// </summary>
     public class GR10
     {
         SerialPort _port = null;
-        byte[] _sendData = new byte[1024];
-        byte[] _reciveData = new byte[1024];
-        static object comLock = new object();
-
-
+       
+        /// <summary>
+        /// 打开串口
+        /// </summary>
+        /// <param name="comPort"></param>
         public void Open(string comPort)
         {
-            if(_port==null)
+            byte[] _sendData = new byte[1024];
+            byte[] _reciveData = new byte[1024];
+            if (_port==null)
                 _port = new SerialPort(comPort, 19200);
 
             //连接
@@ -42,322 +42,92 @@ namespace JingJia.PLCDriver
             PLCDeviceCacheObject.Instance["com"] = _port;
 
         }
-        public void Close()
-        {
-            if (_port.IsOpen)
-            {
-                _port.Close();
-            }
-        }
-
-
+        
         /// <summary>
-        /// 串口缓存
+        /// 串口缓冲区
         /// </summary>
         private List<byte> buffer = new List<byte>(4096);
 
-
         /// <summary>
-        /// 发送串口字节数据
+        /// 发送串口字节数据 同步方法 zhw
         /// </summary>
-        /// <param name="sendData"></param>
-        /// <returns></returns>
+        /// <param name="sendData">发送的数据</param>
+        /// <returns>返回命令结果 buf == null 为超时</returns>
         public byte[] SendData(byte[] sendData)
         {
-            byte[] resData = new byte[512];
-            lock (comLock)
+            try
             {
-                //if (!_port.IsOpen)
-                //    _port.Open();
-                //_port.Write(sendData, 0, sendData.Length);
-                //System.Threading.Thread.Sleep(2000);
-                //_port.Read(resData, 0, 12);
-                //_port.Close();
-
                 _port = (SerialPort)PLCDeviceCacheObject.Instance["com"];
-                if (_port == null)
-                {
-                    if (!_port.IsOpen)
-                        _port.Open();
-                }
-                buf = new byte[0];
-                nex = false;
-                _port.Write(sendData, 0, sendData.Length);
-                _port.DataReceived += _port_DataReceived;
-                //System.Threading.Thread.Sleep(2000);
-                //_port.Read(resData, 0, 128);
-                //_port.Close();
 
-
-                int aa =300;
-                while (nex == false)
+                lock (_port)
                 {
-                    aa--;
-                    System.Threading.Thread.Sleep(10);
-                    if (aa == 0)
+                    buffer.Clear();//清空缓冲区
+                    int clock = 300;//初始化时钟 
+                    _port.Write(sendData, 0, sendData.Length);//写入数据
+                    _port.DataReceived += _port_DataReceived;//订阅串口数据
+
+                    for (int i = clock; i > 0; i--)
                     {
-                        break;
+                        Thread.Sleep(10);//延迟
+                        byte[] clist = CheckBuffer(buffer);//校验数据包
+                        if (clist != null)
+                        {
+                            return clist;
+                        }
                     }
+                    return null;
                 }
-
-                //nex = false;
-                return buf;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
-        private StringBuilder builder = new StringBuilder();//避免在事件处理方法中反复的创建，定义到外面。
-        private long received_count = 0;//接收计数
-        private long send_count = 0;//发送计数
-        int n = 0;
-        byte[] buf;
-        bool nex = false;
-        byte[] ReceiveBytes;
 
+        /// <summary>
+        /// 串口数据订阅函数
+        /// </summary>
         private void _port_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            n = _port.BytesToRead;//先记录下来，避免某种原因，人为的原因，操作几次之间时间长，缓存不一致
-            if (n < 5) {
-                return;
-            }
-            buf = new byte[n];//声明一个临时数组存储当前来的串口数据
-            //received_count += n;//增加接收计数
-            _port.Read(buf, 0, n);//读取缓冲数据
-            builder.Clear();//清除字符串构造器的内容
-            nex = true;
-
-        }
-
-
-
-        private void _port_DataReceived1(object sender, SerialDataReceivedEventArgs e)
         {
             int n = _port.BytesToRead;
             byte[] buf = new byte[n];
             _port.Read(buf, 0, n);
-
-            //1.缓存数据
             buffer.AddRange(buf);
-
-
-
-            //2.完整性判断
-            while (buffer.Count > 6)
-            {
-                //找到帧头
-                if (buffer[0] == 0x54)
-                {
-                    int len = buffer[1];
-
-                    if (buffer.Count < len + 1)
-                    {
-                        break;
-                    }
-                    ReceiveBytes = new byte[len + 1];
-                    buffer.CopyTo(0, ReceiveBytes, 0, len + 1);
-                    //buffer.RemoveRange(0, len + 1);
-                    nex = true;
-                    buffer = new List<byte>();
-                    break;
-                }
-                else
-                {
-                    buffer.RemoveAt(0);
-                }
-            }
-
-        }
-
-
-
-        /// <summary>
-        /// 断路器打开
-        /// </summary>
-        /// <param name="code">表号</param>
-        public void SetOn(int code)
-        {
-            //通 53 0B 32 80 00 00 00 4D 00 00 0B F4  | S\#112\#0\#0\#0M\#0\#0\#11ô
-            _sendData[0] = Convert.ToByte('S');
-            _sendData[1] = 11;
-            _sendData[2] = 50;
-            _sendData[3] = 128;
-            _sendData[4] = 0; //MetSetSts
-            _sendData[5] = 0; //MetPwr
-            _sendData[6] = 0; //Group
-
-            _sendData[7] = (byte) ((code & 0x000000ff)); ; //表号
-            _sendData[8] = (byte) ((code & 0x0000FF00)>>8);
-            _sendData[9] = (byte) ((code & 0x00FF0000) >> 16); 
-
-
-            _sendData[10] = Add(_sendData, 1, 9);
-            _sendData[11] = Crc(_sendData, 1, 9);
-
-            lock (comLock)
-            {
-                if (!_port.IsOpen)
-                    _port.Open();
-                _port.Write(_sendData, 0, 12);
-                _reciveData[0] = 0;
-                _reciveData[1] = 0;
-                _reciveData[2] = 0;
-
-                System.Threading.Thread.Sleep(2000);
-                _port.Read(_reciveData, 0, 6);
-                _port.Close();
-            }
-            if ((_reciveData[3] & 128) > 0 || _reciveData[1] == 0)
-                throw new Exception("打开失败");
-           
-        }
-        /// <summary>
-        /// 断路器关闭
-        /// </summary>
-        /// <param name="code"></param>
-        public void SetOff(int code)
-        {
-            _sendData[0] = Convert.ToByte('S');
-            _sendData[1] = 11;
-            _sendData[2] = 50;
-            _sendData[3] = 128;
-            _sendData[4] = 128; //MetSetSts
-            _sendData[5] = 0; //MetPwr
-            _sendData[6] = 0; //Group
-
-            _sendData[7] = (byte)((code & 0x000000ff)); //表号
-            _sendData[8] = (byte)((code & 0x0000FF00) >> 8);
-            _sendData[9] = (byte)((code & 0x00FF0000) >> 16); 
-
-
-            _sendData[10] = Add(_sendData, 1, 9);
-            _sendData[11] = Crc(_sendData, 1, 9);
-
-            lock (comLock)
-            {
-                if (!_port.IsOpen)
-                    _port.Open();
-                _port.Write(_sendData, 0, 12);
-                _reciveData[0] = 0;
-                _reciveData[1] = 0;
-                _reciveData[2] = 0;
-                System.Threading.Thread.Sleep(2000);
-                _port.Read(_reciveData, 0, 6);
-                _port.Close();
-                if ((_reciveData[3] & 128) == 0 || _reciveData[1] == 0)
-                    throw new Exception("关闭失败");
-            }
-        }
-        /// <summary>
-        /// 根据单项电表表号获取表底读数
-        /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
-        public float GetElectricity(int code)
-        {
-            float r=0f;
-            _sendData[0] = Convert.ToByte('S');
-            _sendData[1] = 7;
-            _sendData[2] = 63;
-            _sendData[3] = (byte)((code & 0x000000ff)); //表号
-            _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
-            _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
-            //_sendData[6] = 0;
-            _sendData[6] = Add(_sendData, 1, 6);
-            _sendData[7] = Crc(_sendData, 1, 6);
-            
-            try
-            {
-                lock (comLock)
-                {
-
-                    if (!_port.IsOpen)
-                        _port.Open();
-                    _port.Write(_sendData, 0, 9);
-                    _reciveData[0] = 0;
-                    _reciveData[1] = 0;
-                    _reciveData[2] = 0;
-                    //实践证明必须等待大约2秒钟，否则获取的数据为空 zhws
-                    System.Threading.Thread.Sleep(2000);
-                    _port.Read(_reciveData, 0, 9);
-                }
-                if (_reciveData[0] != 0)
-                {
-                    r = (_reciveData[4] + _reciveData[5] * 256 + _reciveData[6] * 256 * 256) / 100F;
-                    return r;
-                }
-                else
-                {
-                    throw new Exception("获取表底信息失败");
-                }
-            }
-            catch
-            {
-                throw new Exception("获取表底信息失败");
-            }
-            finally
-            {
-                _port.Close();
-            }
         }
 
         /// <summary>
-        /// 抄录
+        /// 校验数据包
         /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
-        //public PLCDeviceBase Read(int code, EnumHandleType enumDeviceType) {
+        private byte[] CheckBuffer(List<byte> buffer) {
 
-        //    float r = 0f;
-        //    _sendData[0] = Convert.ToByte('S');
-        //    _sendData[1] = 7;
-        //    _sendData[2] = 63;
-        //    _sendData[3] = (byte)((code & 0x000000ff)); //表号
-        //    _sendData[4] = (byte)((code & 0x0000FF00) >> 8);
-        //    _sendData[5] = (byte)((code & 0x00FF0000) >> 16);
-        //    //_sendData[6] = 0;
-        //    _sendData[6] = Add(_sendData, 1, 6);
-        //    _sendData[7] = Crc(_sendData, 1, 6);
+            if (buffer.Count < 5) {
+                return null;
+            }
 
-        //    PLCDeviceBase pLCDeviceBase;
-        //    try
-        //    {
-        //        byte[] resByte = SendData(_sendData);
+            while (buffer[0] != 0x54) {
+                buffer.RemoveAt(0);
+            }
 
-        //         pLCDeviceBase = new PLCDeviceBase(1, resByte);
+            if (buffer.Count < 5)
+            {
+                return null;
+            }
 
+            int len = buffer[1];
+
+            if (buffer.Count > len)
+            {
+                byte[] copyBytes = new byte[len + 1];
+                buffer.CopyTo(0, copyBytes, 0, len + 1);
+                return copyBytes;
+            }
+            else {
                 
-        //    }
-        //    catch
-        //    {
-        //        pLCDeviceBase = new PLCDeviceBase();
-        //        pLCDeviceBase.Msg = "串口数据通信异常。";
-        //    }
-        
-        //    return pLCDeviceBase;
-        //}
-
-
-
-        private byte Add(byte[] data, int start, int length)
-        {
-            int temp = 0;
-
-            for (int i = start; i < length; i++)
-            {
-                temp += data[i];
-                if (temp >= 256)
-                    temp = temp % 256;
+                return null;
             }
-            return (byte)temp;
-        }
-        private byte Crc(byte[] data, int start, int length)
-        {
-            byte CheckCode = 0;
 
-            for (int i = start; i < length; i++)
-            {
-                CheckCode ^= data[i];
-            }
-            return CheckCode;
         }
+
     }
 }
