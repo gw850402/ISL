@@ -55,8 +55,18 @@ namespace JingJia.PLCDriver
 
             }
 
+            // if (handleType == EnumHandleType.打开任务调度器) {
 
-            GR10 gr10 = DriveFactory.GetPLCInstence();
+            //    Class1 class1 = new Class1();
+            //    class1.Star();
+
+            //    return "已经打开";
+            //}
+
+
+
+
+                GR10 gr10 = DriveFactory.GetPLCInstence();
 
             //打开串口
             //gr10.Open("COM4");

@@ -43,6 +43,14 @@ namespace ConnectService.plc
 
             context.Response.ContentType = "text/plain";
 
+
+            if (enumHandleType == EnumHandleType.打开任务调度器) {
+                Jingjia.Task.Class1 class1 = new Jingjia.Task.Class1();
+                class1.Star();
+                context.Response.Write("任务调度器已打开");
+                return;
+            }
+
             string data = JingJia.PLCDriver.CommandQueueDriver.ExecuteCommand(deviceNum, enumHandleType, enumDeviceType);
            
             context.Response.Write(Common.ResultJsonStringNew(deviceNum, "ok", data));

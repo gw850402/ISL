@@ -191,6 +191,10 @@
       <Project>{69CC9B13-BDA1-4DE1-B7C0-F13590308D8E}</Project>
       <Name>Jingjia.PLCModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Jingjia.Task\Jingjia.Task.csproj">
+      <Project>{b059c659-fcd3-4df5-a47a-1b430afcfb38}</Project>
+      <Name>Jingjia.Task</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

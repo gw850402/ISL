@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimeJob.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -58,6 +59,20 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JingJia.PLCCache\JingJia.PLCCache.csproj">
+      <Project>{e6ae2ca0-fb58-4718-b049-d033e360c658}</Project>
+      <Name>JingJia.PLCCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JingJia.PLCComm\JingJia.PLCComm.csproj">
+      <Project>{D6468250-0847-49E0-AE1C-22BC38480F78}</Project>
+      <Name>JingJia.PLCComm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JingJia.PLCDriver\JingJia.PLCDriver.csproj">
+      <Project>{47ac0d1a-514a-465e-a1e3-0fdd73ca8a13}</Project>
+      <Name>JingJia.PLCDriver</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
