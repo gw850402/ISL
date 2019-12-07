@@ -39,7 +39,7 @@ namespace JingJia.PLCDriver
             _port.Read(_reciveData, 0, 2);
             // _port.Close();
             // 修改串口流保存至缓存 zhw  2019-11-25 20:30:50
-            PLCDeviceCacheObject.Instance["com"] = _port;
+            PLCDeviceCacheObject.Instance.AddSerialPort(comPort, _port);
         }
         
         /// <summary>
@@ -52,11 +52,11 @@ namespace JingJia.PLCDriver
         /// </summary>
         /// <param name="sendData">发送的数据</param>
         /// <returns>返回命令结果 buf == null 为超时</returns>
-        public byte[] SendData(byte[] sendData)
+        public byte[] SendData(string com, byte[] sendData)
         {
             try
             {
-                _port = (SerialPort)PLCDeviceCacheObject.Instance["com"];
+                _port = PLCDeviceCacheObject.Instance.GetSerialPort(com);
 
                 lock (_port)
                 {

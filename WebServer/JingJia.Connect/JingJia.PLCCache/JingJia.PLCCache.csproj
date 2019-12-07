@@ -41,5 +41,11 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jingjia.PLCModel\Jingjia.PLCModel.csproj">
+      <Project>{69CC9B13-BDA1-4DE1-B7C0-F13590308D8E}</Project>
+      <Name>Jingjia.PLCModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

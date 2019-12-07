@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
+using Jingjia.PLCModel;
 using JingJia.PLCCache;
 using JingJia.PLCComm;
 using Newtonsoft.Json;
@@ -38,17 +39,16 @@ namespace JingJia.PLCDriver
             {
 
                 _pLCDeviceCache = PLCDeviceCacheObject.Instance;
-                Dictionary<string, object> _dataDic = _pLCDeviceCache.GetAll();
+                Dictionary<int, Result63ReadBase> _dataDic = _pLCDeviceCache.GetResult63ReadBases();
 
-                List<object> ress = new List<object>();
+                //List<Result63ReadBase> ress = new List<Result63ReadBase>();
 
-                foreach (object item in _dataDic.Values)
-                {
-                    ress.Add(item);
-                }
+                //foreach (Result63ReadBase item in _dataDic.Values)
+                //{
+                //    ress.Add(item);
+                //}
 
-                ress.RemoveAt(0);
-                string str = JsonConvert.SerializeObject(ress);
+                string str = JsonConvert.SerializeObject(_dataDic);
 
                 return str;
 
@@ -68,12 +68,12 @@ namespace JingJia.PLCDriver
             byte[] sendData = pLCCommandBase.BuildCommandByte(num);
 
             byte[] resData;
-
+             
             string json;
 
             try
             {
-                resData = gr10.SendData(sendData);
+                resData = gr10.SendData("COM4",sendData);
 
                 if (resData == null)
                 {
