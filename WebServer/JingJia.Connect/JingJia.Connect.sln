@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JingJia.PLCComm", "JingJia.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JingJia.PLCCache", "JingJia.PLCCache\JingJia.PLCCache.csproj", "{E6AE2CA0-FB58-4718-B049-D033E360C658}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jingjia.Task", "Jingjia.Task\Jingjia.Task.csproj", "{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,18 @@ Global
 		{E6AE2CA0-FB58-4718-B049-D033E360C658}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E6AE2CA0-FB58-4718-B049-D033E360C658}.Release|x86.ActiveCfg = Release|Any CPU
 		{E6AE2CA0-FB58-4718-B049-D033E360C658}.Release|x86.Build.0 = Release|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Debug|x86.Build.0 = Debug|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Release|x86.ActiveCfg = Release|Any CPU
+		{B059C659-FCD3-4DF5-A47A-1B430AFCFB38}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
