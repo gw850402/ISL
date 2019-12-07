@@ -1,13 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
-
-
-
 	</head>
 
 	<body>
@@ -31,32 +28,17 @@
 				</a>
 			</nav>
 
-
 			<div class="mui-content">
-
-
-				<!-- 	<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						逸夫楼/A座1层/1101
-						<div id="mySwitch" class="mui-switch mui-switch-mini mui-active">
-							<div class="mui-switch-handle"></div>
-						</div>
-					</li>
-				</ul> -->
-
-				<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
+				<ul class="mui-table-view">
+					<com-device v-for="item in devices" v-bind:device="item" v-bind:key="item.num"></com-device>
+				</ul>
 			</div>
 		</div>
 
 		<script src="../../js/api.js"></script>
-		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>
-		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="../../js/axios.js" type="text/javascript" charset="utf-8"></script>		
 		<script src="../../js/vue.min.js"></script>
-
 		<script src="../../js/mui.js"></script>
-
-
-
 		<script type="text/javascript">
 			mui.init()
 
@@ -70,18 +52,34 @@
 					}
 				},
 				template: `
-				<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					{{device.name}}
+					<span class="mui-icon mui-icon-refresh" v-on:tap="refreshValue(device)"></span>
 					<div class="mui-switch mui-switch-mini" v-bind:class="this.classMuiActive">
 						<div class="mui-switch-handle" v-on:click="deleteImg(device)"></div>
 					</div>
 				</li>
-				</ul>`,
-				//v-bind:class="this.classMuiActive"
+				`,
 				methods: {
+					refreshValue: function(e) {
+						var url = SendCommand + "id=" + e.num + "&cmd=1&type=8";
+						axios.get(url)
+							.then(function(response) {
+								console.log(response);
+								//代码需要调试，先写逻辑
+								if (response.data.state == 1) {
+									device.onOff = true;
+								
+								} else {
+									device.onOff = false;
+								}
+								console.log(device.onOff);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					},
 					deleteImg: function(e) {
-
 						console.log(e.onOff);
 						if (e.onOff) {
 							e.onOff = false;
@@ -93,10 +91,8 @@
 					httpDeviceControl: function(deviceNum, onOff) {
 						var url = "";
 						if (onOff) {
-							// url = BASEURL + "SetOn.ashx?id=" + deviceNum;
 							url = SendCommand + "id=" + deviceNum + "&cmd=2&type=8";
 						} else {
-							// url = BASEURL + "SetOff.ashx?id=" + deviceNum;
 							url = SendCommand + "id=" + deviceNum + "&cmd=3&type=8";
 						}
 						mui.toast("指令已发送.");
